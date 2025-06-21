@@ -1,0 +1,42 @@
+name: Deploy to Deno Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    
+    permissions:
+      id-token: write
+      contents: read
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Deno
+      uses: denoland/setup-deno@v1
+      with:
+        deno-version: v2.x
+        
+    - name: Cache Deno dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/deno
+        key: ${{ runner.os }}-deno-${{ hashFiles('**/deno.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-deno-
+          
+    - name: Build project
+      run: deno task build
+      
+    - name: Deploy to Deno Deploy
+      uses: denoland/deployctl@v1
+      with:
+        project: "athena"
+        entrypoint: "main.ts"
+        root: "."

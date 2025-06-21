@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 文档
+    url: https://github.com/dext7r/athena/blob/main/README.md
+    about: 查看项目文档和使用指南
+  - name: 💬 讨论
+    url: https://github.com/dext7r/athena/discussions
+    about: 提问、分享想法或与社区讨论
+  - name: 🔒 安全问题
+    url: https://github.com/dext7r/athena/security/advisories/new
+    about: 报告安全漏洞（私密报告）

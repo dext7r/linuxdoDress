@@ -4,22 +4,64 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $about from "./routes/about.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $components from "./routes/components.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
+import * as $hooks from "./routes/hooks.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $state from "./routes/state.tsx";
+import * as $status_401 from "./routes/status/401.tsx";
+import * as $status_403 from "./routes/status/403.tsx";
+import * as $status_500 from "./routes/status/500.tsx";
+import * as $status_502 from "./routes/status/502.tsx";
+import * as $status_503 from "./routes/status/503.tsx";
+import * as $status_index from "./routes/status/index.tsx";
+import * as $ComponentsDemo from "./islands/ComponentsDemo.tsx";
 import * as $Counter from "./islands/Counter.tsx";
+import * as $CounterDemo from "./islands/CounterDemo.tsx";
+import * as $HeaderNavigation from "./islands/HeaderNavigation.tsx";
+import * as $HooksDemo from "./islands/HooksDemo.tsx";
+import * as $LayoutManager from "./islands/LayoutManager.tsx";
+import * as $NavigationState from "./islands/NavigationState.tsx";
+import * as $SidebarNavigation from "./islands/SidebarNavigation.tsx";
+import * as $SimpleStateDemo from "./islands/SimpleStateDemo.tsx";
+import * as $StateDemo from "./islands/StateDemo.tsx";
+import * as $StatusDropdown from "./islands/StatusDropdown.tsx";
+import * as $ThemeToggle from "./islands/ThemeToggle.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/about.tsx": $about,
     "./routes/api/joke.ts": $api_joke,
+    "./routes/components.tsx": $components,
     "./routes/greet/[name].tsx": $greet_name_,
+    "./routes/hooks.tsx": $hooks,
     "./routes/index.tsx": $index,
+    "./routes/state.tsx": $state,
+    "./routes/status/401.tsx": $status_401,
+    "./routes/status/403.tsx": $status_403,
+    "./routes/status/500.tsx": $status_500,
+    "./routes/status/502.tsx": $status_502,
+    "./routes/status/503.tsx": $status_503,
+    "./routes/status/index.tsx": $status_index,
   },
   islands: {
+    "./islands/ComponentsDemo.tsx": $ComponentsDemo,
     "./islands/Counter.tsx": $Counter,
+    "./islands/CounterDemo.tsx": $CounterDemo,
+    "./islands/HeaderNavigation.tsx": $HeaderNavigation,
+    "./islands/HooksDemo.tsx": $HooksDemo,
+    "./islands/LayoutManager.tsx": $LayoutManager,
+    "./islands/NavigationState.tsx": $NavigationState,
+    "./islands/SidebarNavigation.tsx": $SidebarNavigation,
+    "./islands/SimpleStateDemo.tsx": $SimpleStateDemo,
+    "./islands/StateDemo.tsx": $StateDemo,
+    "./islands/StatusDropdown.tsx": $StatusDropdown,
+    "./islands/ThemeToggle.tsx": $ThemeToggle,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

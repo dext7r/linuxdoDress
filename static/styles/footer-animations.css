@@ -1,0 +1,207 @@
+/* Footer专用动画效果 */
+
+/* 渐变流动动画 */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  background-size: 200% 200%;
+  animation: gradient-flow 8s ease-in-out infinite;
+}
+
+/* 浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(10px) scale(0.95);
+    opacity: 0.6;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* 3D技术标签效果 */
+.tech-tag-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.tech-tag-3d:hover {
+  transform: perspective(1000px) rotateX(10deg) rotateY(5deg) scale(1.1);
+}
+
+.tech-tag-3d:active {
+  transform: perspective(1000px) rotateX(5deg) rotateY(2deg) scale(0.95);
+}
+
+/* 发光脉冲效果 */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.4);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* 弹性缩放动画 */
+@keyframes bounce-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-bounce-scale {
+  animation: bounce-scale 0.6s ease-in-out;
+}
+
+/* 旋转发光动画 */
+@keyframes rotate-glow {
+  0% {
+    transform: rotate(0deg);
+    filter: brightness(1);
+  }
+  50% {
+    transform: rotate(180deg);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: brightness(1);
+  }
+}
+
+.animate-rotate-glow {
+  animation: rotate-glow 3s linear infinite;
+}
+
+/* 波纹效果 */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* 文字渐变动画 */
+@keyframes text-gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-text-gradient {
+  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #06b6d4, #10b981);
+  background-size: 400% 400%;
+  animation: text-gradient 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 悬停时的微妙动画 */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式动画优化 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-flow,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-glow-pulse,
+  .animate-bounce-scale,
+  .animate-rotate-glow,
+  .animate-text-gradient {
+    animation: none;
+  }
+  
+  .tech-tag-3d:hover,
+  .hover-lift:hover {
+    transform: none;
+  }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .tech-tag-3d:hover {
+    transform: scale(1.05);
+  }
+  
+  .animate-float,
+  .animate-float-delayed {
+    animation-duration: 4s;
+  }
+}

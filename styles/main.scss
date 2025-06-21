@@ -1,0 +1,101 @@
+// 主样式入口文件 - 整合所有Sass样式
+
+// 1. 变量和主题
+@import 'variables/theme';
+
+// 2. 工具和混合器
+@import 'utilities/mixins';
+
+// 3. 基础样式
+@import 'base/reset';
+
+// 4. 组件样式
+@import 'components/custom';
+
+// 5. 全局工具类（补充TailwindCSS）
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  
+  @include tablet {
+    padding: 0 var(--spacing-lg);
+  }
+  
+  @include desktop {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+// 动画工具类
+.animate-fade-in {
+  @include fade-in;
+}
+
+.animate-slide-up {
+  @include slide-up;
+}
+
+// 文本工具类
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// 布局工具类
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+// 响应式工具类
+.hide-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.hide-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.show-mobile {
+  display: none !important;
+  
+  @include mobile {
+    display: block !important;
+  }
+}
+
+.show-tablet {
+  display: none !important;
+  
+  @include tablet {
+    display: block !important;
+  }
+}
+
+.show-desktop {
+  display: none !important;
+  
+  @include desktop {
+    display: block !important;
+  }
+}
