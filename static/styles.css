@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 /* 导入自定义Sass样式 */
-@import '../styles/main.scss';
+@import "../styles/main.scss";
 
 /* 导入自定义动画 */
-@import './styles/animations.css';
+@import "./styles/animations.css";
 
 /* 导入Footer专用动画 */
-@import './styles/footer-animations.css';
+@import "./styles/footer-animations.css";

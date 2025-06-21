@@ -1,5 +1,5 @@
-import { useEffect } from 'preact/hooks';
-import { useThemeStore } from '../stores/useThemeStore.ts';
+import { useEffect } from "preact/hooks";
+import { useThemeStore } from "../stores/useThemeStore.ts";
 
 /**
  * 主题Hook - 结合Zustand状态管理
@@ -19,18 +19,18 @@ export function useTheme() {
     initializeTheme();
 
     // 监听系统主题变化
-    if (typeof window !== 'undefined' && theme === 'system') {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      
+    if (typeof window !== "undefined" && theme === "system") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
       const handleChange = () => {
-        if (theme === 'system') {
+        if (theme === "system") {
           initializeTheme();
         }
       };
 
       if (mediaQuery.addEventListener) {
-        mediaQuery.addEventListener('change', handleChange);
-        return () => mediaQuery.removeEventListener('change', handleChange);
+        mediaQuery.addEventListener("change", handleChange);
+        return () => mediaQuery.removeEventListener("change", handleChange);
       } else {
         // 兼容旧版本浏览器
         mediaQuery.addListener(handleChange);
@@ -45,8 +45,8 @@ export function useTheme() {
     isLight: !isDark,
     setTheme,
     toggleTheme,
-    setLightTheme: () => setTheme('light'),
-    setDarkTheme: () => setTheme('dark'),
-    setSystemTheme: () => setTheme('system'),
+    setLightTheme: () => setTheme("light"),
+    setDarkTheme: () => setTheme("dark"),
+    setSystemTheme: () => setTheme("system"),
   };
 }

@@ -17,6 +17,7 @@ irm https://deno.land/install.ps1 | iex
 ```
 
 验证安装：
+
 ```bash
 deno --version
 ```
@@ -45,16 +46,23 @@ deno task start
 ## 🎯 第四步：探索功能
 
 ### 查看首页
+
 访问 [http://localhost:8000](http://localhost:8000) 查看项目首页，了解项目特性。
 
 ### 组件演示
-访问 [http://localhost:8000/components](http://localhost:8000/components) 查看所有 UI 组件。
+
+访问 [http://localhost:8000/components](http://localhost:8000/components)
+查看所有 UI 组件。
 
 ### Hooks 演示
-访问 [http://localhost:8000/hooks](http://localhost:8000/hooks) 体验自定义 Hooks。
+
+访问 [http://localhost:8000/hooks](http://localhost:8000/hooks) 体验自定义
+Hooks。
 
 ### 状态管理
-访问 [http://localhost:8000/state](http://localhost:8000/state) 了解状态管理功能。
+
+访问 [http://localhost:8000/state](http://localhost:8000/state)
+了解状态管理功能。
 
 ## 🛠️ 第五步：开始开发
 
@@ -65,8 +73,8 @@ deno task start
 ```tsx
 // routes/my-page.tsx
 import { Head } from "$fresh/runtime.ts";
-import Layout from '../components/layout/Layout.tsx';
-import Button from '../components/ui/Button.tsx';
+import Layout from "../components/layout/Layout.tsx";
+import Button from "../components/ui/Button.tsx";
 
 export default function MyPage() {
   return (
@@ -85,7 +93,8 @@ export default function MyPage() {
 }
 ```
 
-2. 访问 [http://localhost:8000/my-page](http://localhost:8000/my-page) 查看新页面。
+2. 访问 [http://localhost:8000/my-page](http://localhost:8000/my-page)
+   查看新页面。
 
 ### 创建新组件
 
@@ -111,32 +120,32 @@ export default function MyComponent({ title, children }: MyComponentProps) {
 2. 在页面中使用：
 
 ```tsx
-import MyComponent from '../components/ui/MyComponent.tsx';
+import MyComponent from "../components/ui/MyComponent.tsx";
 
 // 在组件中使用
 <MyComponent title="我的组件">
   <p>这是组件内容</p>
-</MyComponent>
+</MyComponent>;
 ```
 
 ### 使用自定义 Hooks
 
 ```tsx
-import { useLocalStorage, useToggle } from '../hooks/index.ts';
+import { useLocalStorage, useToggle } from "../hooks/index.ts";
 
 export default function MyPage() {
-  const [name, setName] = useLocalStorage('userName', '');
+  const [name, setName] = useLocalStorage("userName", "");
   const [isVisible, toggleVisible] = useToggle(false);
 
   return (
     <div>
-      <input 
-        value={name} 
+      <input
+        value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="输入您的姓名"
       />
       <button onClick={toggleVisible}>
-        {isVisible ? '隐藏' : '显示'}
+        {isVisible ? "隐藏" : "显示"}
       </button>
       {isVisible && <p>Hello, {name}!</p>}
     </div>
@@ -147,7 +156,7 @@ export default function MyPage() {
 ### 使用状态管理
 
 ```tsx
-import { useAppStore } from '../stores/useAppStore.ts';
+import { useAppStore } from "../stores/useAppStore.ts";
 
 export default function MyPage() {
   const { isLoading, setLoading } = useAppStore();
@@ -159,7 +168,7 @@ export default function MyPage() {
 
   return (
     <button onClick={handleClick} disabled={isLoading}>
-      {isLoading ? '加载中...' : '开始加载'}
+      {isLoading ? "加载中..." : "开始加载"}
     </button>
   );
 }
@@ -172,7 +181,7 @@ export default function MyPage() {
 ```tsx
 <div className="bg-blue-500 text-white p-4 rounded-lg shadow-lg hover:bg-blue-600 transition-colors">
   TailwindCSS 样式
-</div>
+</div>;
 ```
 
 ### 使用 Sass

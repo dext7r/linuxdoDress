@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'preact/hooks';
+import { useCallback, useState } from "preact/hooks";
 
 interface CounterOptions {
   min?: number;
@@ -14,20 +14,20 @@ interface CounterOptions {
  */
 export function useCounter(
   initialValue: number = 0,
-  options: CounterOptions = {}
+  options: CounterOptions = {},
 ) {
   const { min, max, step = 1 } = options;
   const [count, setCount] = useState<number>(initialValue);
 
   const increment = useCallback(() => {
-    setCount(prev => {
+    setCount((prev) => {
       const newValue = prev + step;
       return max !== undefined ? Math.min(newValue, max) : newValue;
     });
   }, [step, max]);
 
   const decrement = useCallback(() => {
-    setCount(prev => {
+    setCount((prev) => {
       const newValue = prev - step;
       return min !== undefined ? Math.max(newValue, min) : newValue;
     });
@@ -38,7 +38,7 @@ export function useCounter(
   }, [initialValue]);
 
   const set = useCallback((value: number) => {
-    setCount(prev => {
+    setCount((prev) => {
       let newValue = value;
       if (min !== undefined) newValue = Math.max(newValue, min);
       if (max !== undefined) newValue = Math.min(newValue, max);

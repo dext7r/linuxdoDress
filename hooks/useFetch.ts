@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'preact/hooks';
+import { useEffect, useState } from "preact/hooks";
 
 interface FetchState<T> {
   data: T | null;
@@ -7,7 +7,7 @@ interface FetchState<T> {
 }
 
 interface FetchOptions {
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+  method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   headers?: Record<string, string>;
   body?: any;
   dependencies?: any[];
@@ -21,7 +21,7 @@ interface FetchOptions {
  */
 export function useFetch<T = any>(
   url: string | null,
-  options: FetchOptions = {}
+  options: FetchOptions = {},
 ): FetchState<T> & { refetch: () => void } {
   const [state, setState] = useState<FetchState<T>>({
     data: null,
@@ -30,7 +30,7 @@ export function useFetch<T = any>(
   });
 
   const {
-    method = 'GET',
+    method = "GET",
     headers = {},
     body,
     dependencies = [],
@@ -39,18 +39,18 @@ export function useFetch<T = any>(
   const fetchData = async () => {
     if (!url) return;
 
-    setState(prev => ({ ...prev, loading: true, error: null }));
+    setState((prev) => ({ ...prev, loading: true, error: null }));
 
     try {
       const fetchOptions: RequestInit = {
         method,
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           ...headers,
         },
       };
 
-      if (body && method !== 'GET') {
+      if (body && method !== "GET") {
         fetchOptions.body = JSON.stringify(body);
       }
 
@@ -66,14 +66,20 @@ export function useFetch<T = any>(
       setState({
         data: null,
         loading: false,
-        error: error instanceof Error ? error.message : 'An error occurred',
+        error: error instanceof Error ? error.message : "An error occurred",
       });
     }
   };
 
   useEffect(() => {
     fetchData();
-  }, [url, method, JSON.stringify(body), JSON.stringify(headers), ...dependencies]);
+  }, [
+    url,
+    method,
+    JSON.stringify(body),
+    JSON.stringify(headers),
+    ...dependencies,
+  ]);
 
   return {
     ...state,

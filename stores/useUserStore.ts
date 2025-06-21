@@ -1,11 +1,11 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface User {
   id: string;
   name: string;
   email: string;
   avatar?: string;
-  role: 'admin' | 'user' | 'guest';
+  role: "admin" | "user" | "guest";
 }
 
 interface UserState {
@@ -26,22 +26,23 @@ export const useUserStore = create<UserState>((set, get) => ({
   isAuthenticated: false,
 
   // 动作实现
-  setUser: (user) => set({
-    user,
-    isAuthenticated: !!user
-  }),
+  setUser: (user) =>
+    set({
+      user,
+      isAuthenticated: !!user,
+    }),
 
   login: (user) => {
     set({
       user,
-      isAuthenticated: true
+      isAuthenticated: true,
     });
   },
 
   logout: () => {
     set({
       user: null,
-      isAuthenticated: false
+      isAuthenticated: false,
     });
   },
 
@@ -49,7 +50,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     const currentUser = get().user;
     if (currentUser) {
       set({
-        user: { ...currentUser, ...updates }
+        user: { ...currentUser, ...updates },
       });
     }
   },

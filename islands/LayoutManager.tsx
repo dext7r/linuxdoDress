@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'preact/hooks';
-import { JSX } from 'preact';
-import Header from '../components/layout/Header.tsx';
-import Sidebar from '../components/layout/Sidebar.tsx';
-import Footer from '../components/layout/Footer.tsx';
+import { useEffect, useState } from "preact/hooks";
+import { JSX } from "preact";
+import Header from "../components/layout/Header.tsx";
+import Sidebar from "../components/layout/Sidebar.tsx";
+import Footer from "../components/layout/Footer.tsx";
 
 interface LayoutManagerProps {
   children: JSX.Element | JSX.Element[] | string;
@@ -10,7 +10,9 @@ interface LayoutManagerProps {
   showSidebar?: boolean;
 }
 
-const LayoutManager = ({ children, title, showSidebar = true }: LayoutManagerProps) => {
+const LayoutManager = (
+  { children, title, showSidebar = true }: LayoutManagerProps,
+) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarVisible, setSidebarVisible] = useState(showSidebar);
   const [isLargeScreen, setIsLargeScreen] = useState(true);
@@ -19,26 +21,28 @@ const LayoutManager = ({ children, title, showSidebar = true }: LayoutManagerPro
   useEffect(() => {
     // 初始化主题逻辑
     const initTheme = () => {
-      const savedTheme = localStorage.getItem('theme-storage');
+      const savedTheme = localStorage.getItem("theme-storage");
       if (savedTheme) {
         try {
           const themeData = JSON.parse(savedTheme);
-          const theme = themeData.state?.theme || 'system';
+          const theme = themeData.state?.theme || "system";
 
           let isDark = false;
-          if (theme === 'system') {
-            isDark = globalThis.window?.matchMedia('(prefers-color-scheme: dark)').matches || false;
+          if (theme === "system") {
+            isDark =
+              globalThis.window?.matchMedia("(prefers-color-scheme: dark)")
+                .matches || false;
           } else {
-            isDark = theme === 'dark';
+            isDark = theme === "dark";
           }
 
           if (isDark) {
-            document.documentElement.classList.add('dark');
+            document.documentElement.classList.add("dark");
           } else {
-            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.remove("dark");
           }
         } catch (error) {
-          console.warn('Failed to parse theme data:', error);
+          console.warn("Failed to parse theme data:", error);
         }
       }
     };
@@ -63,8 +67,8 @@ const LayoutManager = ({ children, title, showSidebar = true }: LayoutManagerPro
     };
 
     checkScreenSize();
-    globalThis.addEventListener('resize', checkScreenSize);
-    return () => globalThis.removeEventListener('resize', checkScreenSize);
+    globalThis.addEventListener("resize", checkScreenSize);
+    return () => globalThis.removeEventListener("resize", checkScreenSize);
   }, []);
 
   const toggleSidebar = () => {
@@ -103,11 +107,13 @@ const LayoutManager = ({ children, title, showSidebar = true }: LayoutManagerPro
 
         {/* 主内容区域 - 可滚动 */}
         <main className="flex-1 overflow-y-auto transition-all duration-300 ease-in-out">
-          <div className={`
+          <div
+            className={`
             py-6 px-4 md:px-6 min-h-full transition-all duration-300 ease-in-out
-            ${sidebarVisible ? 'lg:pl-6 lg:pr-6' : ''}
+            ${sidebarVisible ? "lg:pl-6 lg:pr-6" : ""}
             max-w-none w-full
-          `}>
+          `}
+          >
             {children}
           </div>
         </main>

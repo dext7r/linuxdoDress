@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'preact/hooks';
+import { useCallback, useState } from "preact/hooks";
 
 /**
  * 布尔值切换Hook
@@ -9,7 +9,7 @@ export function useToggle(initialValue: boolean = false) {
   const [value, setValue] = useState<boolean>(initialValue);
 
   const toggle = useCallback(() => {
-    setValue(prev => !prev);
+    setValue((prev) => !prev);
   }, []);
 
   const setTrue = useCallback(() => {
@@ -33,11 +33,11 @@ export function useCycleToggle<T>(states: T[], initialIndex: number = 0) {
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
 
   const next = useCallback(() => {
-    setCurrentIndex(prev => (prev + 1) % states.length);
+    setCurrentIndex((prev) => (prev + 1) % states.length);
   }, [states.length]);
 
   const previous = useCallback(() => {
-    setCurrentIndex(prev => (prev - 1 + states.length) % states.length);
+    setCurrentIndex((prev) => (prev - 1 + states.length) % states.length);
   }, [states.length]);
 
   const setIndex = useCallback((index: number) => {
@@ -51,6 +51,6 @@ export function useCycleToggle<T>(states: T[], initialIndex: number = 0) {
     currentIndex,
     next,
     previous,
-    setIndex
+    setIndex,
   ] as const;
 }

@@ -1,14 +1,18 @@
-import { useState } from 'preact/hooks';
-import Button from '../components/ui/Button.tsx';
-import Card, { CardHeader, CardTitle, CardContent } from '../components/ui/Card.tsx';
-import Input from '../components/ui/Input.tsx';
-import { 
-  useLocalStorage, 
-  useDebounce, 
-  useToggle, 
-  useCounter, 
-  useBreakpoint 
-} from '../hooks/index.ts';
+import { useState } from "preact/hooks";
+import Button from "../components/ui/Button.tsx";
+import Card, {
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/Card.tsx";
+import Input from "../components/ui/Input.tsx";
+import {
+  useBreakpoint,
+  useCounter,
+  useDebounce,
+  useLocalStorage,
+  useToggle,
+} from "../hooks/index.ts";
 
 export default function HooksDemo() {
   return (
@@ -33,8 +37,8 @@ export default function HooksDemo() {
 
 // useLocalStorage 演示
 function LocalStorageDemo() {
-  const [name, setName, removeName] = useLocalStorage('demo-name', '');
-  const [count, setCount] = useLocalStorage('demo-count', 0);
+  const [name, setName, removeName] = useLocalStorage("demo-name", "");
+  const [count, setCount] = useLocalStorage("demo-count", 0);
 
   return (
     <Card>
@@ -46,7 +50,7 @@ function LocalStorageDemo() {
           <p className="text-sm text-gray-600 dark:text-gray-300">
             自动同步状态到本地存储
           </p>
-          
+
           <div className="space-y-3">
             <Input
               label="姓名"
@@ -54,18 +58,20 @@ function LocalStorageDemo() {
               onChange={(e) => setName(e.currentTarget.value)}
               placeholder="输入你的姓名"
             />
-            
+
             <div className="flex items-center gap-3">
               <span className="text-sm">计数: {count}</span>
               <Button size="sm" onClick={() => setCount(count + 1)}>+1</Button>
-              <Button size="sm" variant="outline" onClick={() => setCount(0)}>重置</Button>
+              <Button size="sm" variant="outline" onClick={() => setCount(0)}>
+                重置
+              </Button>
             </div>
-            
+
             <Button size="sm" variant="secondary" onClick={removeName}>
               清除姓名
             </Button>
           </div>
-          
+
           <div className="text-xs text-gray-500 dark:text-gray-400 p-2 bg-gray-100 dark:bg-gray-800 rounded">
             刷新页面数据仍然保持
           </div>
@@ -77,7 +83,7 @@ function LocalStorageDemo() {
 
 // useDebounce 演示
 function DebounceDemo() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   return (
@@ -90,14 +96,14 @@ function DebounceDemo() {
           <p className="text-sm text-gray-600 dark:text-gray-300">
             防抖处理，延迟500ms更新
           </p>
-          
+
           <Input
             label="搜索"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.currentTarget.value)}
             placeholder="输入搜索内容..."
           />
-          
+
           <div className="space-y-2 text-sm">
             <div>
               <span className="font-medium">实时值:</span> {searchTerm}
@@ -106,7 +112,7 @@ function DebounceDemo() {
               <span className="font-medium">防抖值:</span> {debouncedSearchTerm}
             </div>
           </div>
-          
+
           <div className="text-xs text-gray-500 dark:text-gray-400 p-2 bg-gray-100 dark:bg-gray-800 rounded">
             停止输入500ms后防抖值才会更新
           </div>
@@ -131,29 +137,37 @@ function ToggleDemo() {
           <p className="text-sm text-gray-600 dark:text-gray-300">
             布尔值状态切换管理
           </p>
-          
+
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <span className="text-sm">可见性: {isVisible ? '显示' : '隐藏'}</span>
+              <span className="text-sm">
+                可见性: {isVisible ? "显示" : "隐藏"}
+              </span>
               <Button size="sm" onClick={toggleVisible}>切换</Button>
-              <Button size="sm" variant="outline" onClick={setTrue}>显示</Button>
-              <Button size="sm" variant="outline" onClick={setFalse}>隐藏</Button>
+              <Button size="sm" variant="outline" onClick={setTrue}>
+                显示
+              </Button>
+              <Button size="sm" variant="outline" onClick={setFalse}>
+                隐藏
+              </Button>
             </div>
-            
+
             {isVisible && (
               <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg animate-fade-in">
                 这个内容是可切换的！
               </div>
             )}
-            
+
             <div className="flex items-center gap-3">
-              <span className="text-sm">启用状态: {isEnabled ? '开启' : '关闭'}</span>
-              <Button 
-                size="sm" 
-                variant={isEnabled ? 'primary' : 'secondary'}
+              <span className="text-sm">
+                启用状态: {isEnabled ? "开启" : "关闭"}
+              </span>
+              <Button
+                size="sm"
+                variant={isEnabled ? "primary" : "secondary"}
                 onClick={toggleEnabled}
               >
-                {isEnabled ? '关闭' : '开启'}
+                {isEnabled ? "关闭" : "开启"}
               </Button>
             </div>
           </div>
@@ -165,7 +179,11 @@ function ToggleDemo() {
 
 // useCounter Hook 演示
 function CounterHookDemo() {
-  const { count, increment, decrement, reset, set } = useCounter(10, { min: 0, max: 20, step: 2 });
+  const { count, increment, decrement, reset, set } = useCounter(10, {
+    min: 0,
+    max: 20,
+    step: 2,
+  });
 
   return (
     <Card>
@@ -177,12 +195,12 @@ function CounterHookDemo() {
           <p className="text-sm text-gray-600 dark:text-gray-300">
             带限制的计数器 (0-20, 步长2)
           </p>
-          
+
           <div className="text-center">
             <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-4">
               {count}
             </div>
-            
+
             <div className="flex justify-center gap-2">
               <Button size="sm" onClick={decrement} disabled={count <= 0}>
                 -2
@@ -218,31 +236,55 @@ function BreakpointDemo() {
           <p className="text-sm text-gray-600 dark:text-gray-300">
             响应式断点检测
           </p>
-          
+
           <div className="space-y-2 text-sm">
             <div>
-              <span className="font-medium">当前断点:</span> 
+              <span className="font-medium">当前断点:</span>
               <span className="ml-2 px-2 py-1 bg-blue-100 dark:bg-blue-900 rounded text-blue-800 dark:text-blue-200">
                 {breakpoint}
               </span>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-2">
-              <div className={`p-2 rounded ${isSm ? 'bg-green-100 dark:bg-green-900' : 'bg-gray-100 dark:bg-gray-800'}`}>
-                SM: {isSm ? '✓' : '✗'}
+              <div
+                className={`p-2 rounded ${
+                  isSm
+                    ? "bg-green-100 dark:bg-green-900"
+                    : "bg-gray-100 dark:bg-gray-800"
+                }`}
+              >
+                SM: {isSm ? "✓" : "✗"}
               </div>
-              <div className={`p-2 rounded ${isMd ? 'bg-green-100 dark:bg-green-900' : 'bg-gray-100 dark:bg-gray-800'}`}>
-                MD: {isMd ? '✓' : '✗'}
+              <div
+                className={`p-2 rounded ${
+                  isMd
+                    ? "bg-green-100 dark:bg-green-900"
+                    : "bg-gray-100 dark:bg-gray-800"
+                }`}
+              >
+                MD: {isMd ? "✓" : "✗"}
               </div>
-              <div className={`p-2 rounded ${isLg ? 'bg-green-100 dark:bg-green-900' : 'bg-gray-100 dark:bg-gray-800'}`}>
-                LG: {isLg ? '✓' : '✗'}
+              <div
+                className={`p-2 rounded ${
+                  isLg
+                    ? "bg-green-100 dark:bg-green-900"
+                    : "bg-gray-100 dark:bg-gray-800"
+                }`}
+              >
+                LG: {isLg ? "✓" : "✗"}
               </div>
-              <div className={`p-2 rounded ${isXl ? 'bg-green-100 dark:bg-green-900' : 'bg-gray-100 dark:bg-gray-800'}`}>
-                XL: {isXl ? '✓' : '✗'}
+              <div
+                className={`p-2 rounded ${
+                  isXl
+                    ? "bg-green-100 dark:bg-green-900"
+                    : "bg-gray-100 dark:bg-gray-800"
+                }`}
+              >
+                XL: {isXl ? "✓" : "✗"}
               </div>
             </div>
           </div>
-          
+
           <div className="text-xs text-gray-500 dark:text-gray-400 p-2 bg-gray-100 dark:bg-gray-800 rounded">
             调整浏览器窗口大小查看变化
           </div>

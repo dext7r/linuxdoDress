@@ -1,5 +1,5 @@
-import { JSX } from 'preact';
-import SidebarNavigationIsland from '../../islands/SidebarNavigation.tsx';
+import { JSX } from "preact";
+import SidebarNavigationIsland from "../../islands/SidebarNavigation.tsx";
 
 interface SidebarProps {
   children?: JSX.Element | JSX.Element[];
@@ -23,11 +23,13 @@ const Sidebar = ({ children, isOpen = true, onClose }: SidebarProps) => {
       )}
 
       {/* 侧边栏 */}
-      <aside className={`
+      <aside
+        className={`
         fixed top-0 left-0 z-50 h-full w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 ease-in-out
         lg:relative lg:translate-x-0 lg:z-auto lg:h-full
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0
-      `}>
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0
+      `}
+      >
         <div className="flex flex-col h-full">
           {/* 侧边栏头部 */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
@@ -40,8 +42,18 @@ const Sidebar = ({ children, isOpen = true, onClose }: SidebarProps) => {
               className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 lg:hidden"
               aria-label="关闭侧边栏"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -55,9 +67,5 @@ const Sidebar = ({ children, isOpen = true, onClose }: SidebarProps) => {
     </>
   );
 };
-
-
-
-
 
 export default Sidebar;

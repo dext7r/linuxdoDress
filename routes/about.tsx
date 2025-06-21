@@ -1,17 +1,30 @@
 import { Head } from "$fresh/runtime.ts";
-import Layout from '../components/layout/Layout.tsx';
-import Card, { CardHeader, CardTitle, CardContent } from '../components/ui/Card.tsx';
-import Button from '../components/ui/Button.tsx';
+import Layout from "../components/layout/Layout.tsx";
+import Card, {
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/Card.tsx";
+import Button from "../components/ui/Button.tsx";
 
 export default function AboutPage() {
   return (
     <>
       <Head>
         <title>关于项目 - Athena Template</title>
-        <meta name="description" content="Athena Template是一个现代化的全栈开发模板，集成了Fresh、Preact、TailwindCSS、Sass、Zustand等最新技术栈和最佳实践。" />
-        <meta name="keywords" content="Athena Template, Fresh, Preact, TailwindCSS, Sass, Zustand, Deno, TypeScript, 全栈开发, 模板" />
+        <meta
+          name="description"
+          content="Athena Template是一个现代化的全栈开发模板，集成了Fresh、Preact、TailwindCSS、Sass、Zustand等最新技术栈和最佳实践。"
+        />
+        <meta
+          name="keywords"
+          content="Athena Template, Fresh, Preact, TailwindCSS, Sass, Zustand, Deno, TypeScript, 全栈开发, 模板"
+        />
         <meta property="og:title" content="关于项目 - Athena Template" />
-        <meta property="og:description" content="Athena Template是一个现代化的全栈开发模板，集成了Fresh、Preact、TailwindCSS、Sass、Zustand等最新技术栈和最佳实践。" />
+        <meta
+          property="og:description"
+          content="Athena Template是一个现代化的全栈开发模板，集成了Fresh、Preact、TailwindCSS、Sass、Zustand等最新技术栈和最佳实践。"
+        />
         <meta property="og:type" content="website" />
         <meta name="author" content="h7ml <h7ml@qq.com>" />
       </Head>
@@ -20,11 +33,15 @@ export default function AboutPage() {
           {/* 页面标题 */}
           <div className="relative overflow-hidden">
             {/* 背景装饰 */}
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 dark:from-gray-900 dark:via-indigo-900/20 dark:to-blue-900/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-blue-50 to-cyan-50 dark:from-gray-900 dark:via-indigo-900/20 dark:to-blue-900/20">
+            </div>
             <div className="absolute inset-0">
-              <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-              <div className="absolute top-0 right-1/4 w-72 h-72 bg-blue-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
-              <div className="absolute -bottom-8 left-1/3 w-72 h-72 bg-cyan-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"></div>
+              <div className="absolute top-0 left-1/4 w-72 h-72 bg-indigo-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse">
+              </div>
+              <div className="absolute top-0 right-1/4 w-72 h-72 bg-blue-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000">
+              </div>
+              <div className="absolute -bottom-8 left-1/3 w-72 h-72 bg-cyan-400/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000">
+              </div>
             </div>
 
             <div className="relative text-center space-y-8 py-20 px-4">
@@ -39,8 +56,14 @@ export default function AboutPage() {
                 <span className="text-gray-900 dark:text-white">Template</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                一个现代化的 <span className="font-semibold text-indigo-600 dark:text-indigo-400">全栈开发模板</span>，
-                集成了最新的技术栈和最佳实践，为开发者提供完整的 <span className="font-semibold text-blue-600 dark:text-blue-400">项目基础架构</span> 和丰富的组件库
+                一个现代化的{" "}
+                <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                  全栈开发模板
+                </span>， 集成了最新的技术栈和最佳实践，为开发者提供完整的{" "}
+                <span className="font-semibold text-blue-600 dark:text-blue-400">
+                  项目基础架构
+                </span>{" "}
+                和丰富的组件库
               </p>
             </div>
           </div>
@@ -53,42 +76,82 @@ export default function AboutPage() {
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">前端框架</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                    前端框架
+                  </h4>
                   <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                    <li>• <strong>Fresh</strong> - Deno的现代Web框架</li>
-                    <li>• <strong>Preact</strong> - 轻量级React替代方案</li>
-                    <li>• <strong>Islands架构</strong> - 最佳性能的渲染策略</li>
-                    <li>• <strong>TypeScript</strong> - 类型安全的JavaScript</li>
+                    <li>
+                      • <strong>Fresh</strong> - Deno的现代Web框架
+                    </li>
+                    <li>
+                      • <strong>Preact</strong> - 轻量级React替代方案
+                    </li>
+                    <li>
+                      • <strong>Islands架构</strong> - 最佳性能的渲染策略
+                    </li>
+                    <li>
+                      • <strong>TypeScript</strong> - 类型安全的JavaScript
+                    </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">样式系统</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                    样式系统
+                  </h4>
                   <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                    <li>• <strong>TailwindCSS</strong> - 原子化CSS框架</li>
-                    <li>• <strong>Sass</strong> - CSS预处理器</li>
-                    <li>• <strong>CSS变量</strong> - 动态主题支持</li>
-                    <li>• <strong>响应式设计</strong> - 移动端优先</li>
+                    <li>
+                      • <strong>TailwindCSS</strong> - 原子化CSS框架
+                    </li>
+                    <li>
+                      • <strong>Sass</strong> - CSS预处理器
+                    </li>
+                    <li>
+                      • <strong>CSS变量</strong> - 动态主题支持
+                    </li>
+                    <li>
+                      • <strong>响应式设计</strong> - 移动端优先
+                    </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">状态管理</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                    状态管理
+                  </h4>
                   <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                    <li>• <strong>Zustand</strong> - 轻量级状态管理</li>
-                    <li>• <strong>持久化</strong> - 自动本地存储</li>
-                    <li>• <strong>DevTools</strong> - 开发调试支持</li>
-                    <li>• <strong>TypeScript</strong> - 完整类型支持</li>
+                    <li>
+                      • <strong>Zustand</strong> - 轻量级状态管理
+                    </li>
+                    <li>
+                      • <strong>持久化</strong> - 自动本地存储
+                    </li>
+                    <li>
+                      • <strong>DevTools</strong> - 开发调试支持
+                    </li>
+                    <li>
+                      • <strong>TypeScript</strong> - 完整类型支持
+                    </li>
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">开发工具</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-3">
+                    开发工具
+                  </h4>
                   <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                    <li>• <strong>Deno</strong> - 现代JavaScript运行时</li>
-                    <li>• <strong>热重载</strong> - 快速开发体验</li>
-                    <li>• <strong>ESLint</strong> - 代码质量检查</li>
-                    <li>• <strong>Prettier</strong> - 代码格式化</li>
+                    <li>
+                      • <strong>Deno</strong> - 现代JavaScript运行时
+                    </li>
+                    <li>
+                      • <strong>热重载</strong> - 快速开发体验
+                    </li>
+                    <li>
+                      • <strong>ESLint</strong> - 代码质量检查
+                    </li>
+                    <li>
+                      • <strong>Prettier</strong> - 代码格式化
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -205,21 +268,31 @@ export default function AboutPage() {
                 </div>
 
                 <div className="flex justify-center gap-4">
-                  <a href="https://github.com/dext7r/athena.git" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/dext7r/athena.git"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button variant="primary">查看源码</Button>
                   </a>
-                  <a href="https://fresh.deno.dev" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://fresh.deno.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button variant="outline">Fresh文档</Button>
                   </a>
-                  <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://tailwindcss.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button variant="outline">TailwindCSS</Button>
                   </a>
                 </div>
               </div>
             </CardContent>
           </Card>
-
-
         </div>
       </Layout>
     </>

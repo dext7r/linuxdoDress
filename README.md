@@ -5,27 +5,28 @@
 [![Deno](https://img.shields.io/badge/deno-2.0+-black.svg)](https://deno.land/)
 [![Fresh](https://img.shields.io/badge/fresh-1.7.3-yellow.svg)](https://fresh.deno.dev/)
 
-一个现代化的 React + Deno 全栈开发模板，集成了 TailwindCSS + Sass + Zustand，为您提供完整的项目基础架构。
+一个现代化的 React + Deno 全栈开发模板，集成了 TailwindCSS + Sass +
+Zustand，为您提供完整的项目基础架构。
 
-**作者：** h7ml <h7ml@h7ml.com>
-**仓库：** [https://github.com/dext7r/athena.git](https://github.com/dext7r/athena.git)
-**主页：** [https://athena.deno.dev](https://athena.deno.dev)
-**问题反馈：** [https://github.com/dext7r/athena/issues](https://github.com/dext7r/athena/issues)
-**demo：** [https://athena.deno.dev](https://athena.deno.dev)
-**文档：** [https://athena.deno.dev/docs](https://athena.deno.dev/docs)
+**作者：** h7ml <h7ml@h7ml.com> **仓库：**
+[https://github.com/dext7r/athena.git](https://github.com/dext7r/athena.git)
+**主页：** [https://athena.deno.dev](https://athena.deno.dev) **问题反馈：**
+[https://github.com/dext7r/athena/issues](https://github.com/dext7r/athena/issues)
+**demo：** [https://athena.deno.dev](https://athena.deno.dev) **文档：**
+[https://athena.deno.dev/docs](https://athena.deno.dev/docs)
 
 ## 🚀 技术栈
 
-| 技术 | 版本 | 描述 |
-|------|------|------|
-| **[Fresh](https://fresh.deno.dev/)** | 1.7.3 | Deno 的现代 Web 框架 |
-| **[Preact](https://preactjs.com/)** | 10.22.0 | 轻量级 React 替代方案 |
-| **[TailwindCSS](https://tailwindcss.com/)** | 3.4.1 | 原子化 CSS 框架 |
-| **[Sass](https://sass-lang.com/)** | 1.69.5 | CSS 预处理器 |
-| **[Zustand](https://zustand-demo.pmnd.rs/)** | 4.4.7 | 轻量级状态管理 |
-| **[TypeScript](https://www.typescriptlang.org/)** | Latest | 类型安全的 JavaScript |
-| **[Preact Signals](https://preactjs.com/guide/v10/signals/)** | 1.2.2 | 响应式状态管理 |
-| **[Deno Standard Library](https://deno.land/std)** | 0.216.0 | Deno 标准库 |
+| 技术                                                          | 版本    | 描述                  |
+| ------------------------------------------------------------- | ------- | --------------------- |
+| **[Fresh](https://fresh.deno.dev/)**                          | 1.7.3   | Deno 的现代 Web 框架  |
+| **[Preact](https://preactjs.com/)**                           | 10.22.0 | 轻量级 React 替代方案 |
+| **[TailwindCSS](https://tailwindcss.com/)**                   | 3.4.1   | 原子化 CSS 框架       |
+| **[Sass](https://sass-lang.com/)**                            | 1.69.5  | CSS 预处理器          |
+| **[Zustand](https://zustand-demo.pmnd.rs/)**                  | 4.4.7   | 轻量级状态管理        |
+| **[TypeScript](https://www.typescriptlang.org/)**             | Latest  | 类型安全的 JavaScript |
+| **[Preact Signals](https://preactjs.com/guide/v10/signals/)** | 1.2.2   | 响应式状态管理        |
+| **[Deno Standard Library](https://deno.land/std)**            | 0.216.0 | Deno 标准库           |
 
 ## ✨ 特性
 
@@ -59,22 +60,22 @@ deno task start
 
 ### 可用的 Deno 任务
 
-| 命令 | 描述 |
-|------|------|
-| `deno task start` | 启动开发服务器（带热重载） |
-| `deno task build` | 构建生产版本 |
-| `deno task preview` | 预览生产版本 |
-| `deno task check` | 代码格式化、Lint 检查和类型检查 |
-| `deno task manifest` | 生成 Fresh 清单文件 |
-| `deno task update` | 更新 Fresh 框架到最新版本 |
+| 命令                 | 描述                            |
+| -------------------- | ------------------------------- |
+| `deno task start`    | 启动开发服务器（带热重载）      |
+| `deno task build`    | 构建生产版本                    |
+| `deno task preview`  | 预览生产版本                    |
+| `deno task check`    | 代码格式化、Lint 检查和类型检查 |
+| `deno task manifest` | 生成 Fresh 清单文件             |
+| `deno task update`   | 更新 Fresh 框架到最新版本       |
 
 ## 📖 使用指南
 
 ### 组件使用
 
 ```tsx
-import Button from '../components/ui/Button.tsx';
-import Card from '../components/ui/Card.tsx';
+import Button from "../components/ui/Button.tsx";
+import Card from "../components/ui/Card.tsx";
 
 function MyComponent() {
   return (
@@ -90,10 +91,10 @@ function MyComponent() {
 ### 自定义 Hooks
 
 ```tsx
-import { useLocalStorage, useDebounce } from '../hooks/index.ts';
+import { useDebounce, useLocalStorage } from "../hooks/index.ts";
 
 function MyComponent() {
-  const [value, setValue] = useLocalStorage('key', 'default');
+  const [value, setValue] = useLocalStorage("key", "default");
   const debouncedValue = useDebounce(value, 500);
 
   return <div>{debouncedValue}</div>;
@@ -103,14 +104,14 @@ function MyComponent() {
 ### 状态管理
 
 ```tsx
-import { useAppStore } from '../stores/useAppStore.ts';
+import { useAppStore } from "../stores/useAppStore.ts";
 
 function MyComponent() {
   const { isLoading, setLoading } = useAppStore();
 
   return (
     <button onClick={() => setLoading(!isLoading)}>
-      {isLoading ? '加载中...' : '开始加载'}
+      {isLoading ? "加载中..." : "开始加载"}
     </button>
   );
 }
@@ -169,7 +170,8 @@ athena/
 
 ### Deno Deploy
 
-项目已配置 Deno Deploy 支持，可以直接部署到 [Deno Deploy](https://deno.com/deploy)。
+项目已配置 Deno Deploy 支持，可以直接部署到
+[Deno Deploy](https://deno.com/deploy)。
 
 ```bash
 # 构建项目

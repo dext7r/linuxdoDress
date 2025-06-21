@@ -1,6 +1,10 @@
-import Button from '../components/ui/Button.tsx';
-import Card, { CardHeader, CardTitle, CardContent } from '../components/ui/Card.tsx';
-import { useAppStore, useThemeStore, useUserStore } from '../stores/index.ts';
+import Button from "../components/ui/Button.tsx";
+import Card, {
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/Card.tsx";
+import { useAppStore, useThemeStore, useUserStore } from "../stores/index.ts";
 
 export default function StateDemo() {
   return (
@@ -22,14 +26,14 @@ export default function StateDemo() {
 
 // 应用状态演示
 function AppStateDemo() {
-  const { 
-    isLoading, 
-    error, 
-    sidebarOpen, 
-    setLoading, 
-    setError, 
+  const {
+    isLoading,
+    error,
+    sidebarOpen,
+    setLoading,
+    setError,
     toggleSidebar,
-    setSidebarOpen 
+    setSidebarOpen,
   } = useAppStore();
 
   return (
@@ -43,12 +47,12 @@ function AppStateDemo() {
             <div className="flex items-center justify-between">
               <span className="text-sm">加载状态:</span>
               <div className="flex gap-2">
-                <Button 
-                  size="sm" 
-                  variant={isLoading ? 'primary' : 'outline'}
+                <Button
+                  size="sm"
+                  variant={isLoading ? "primary" : "outline"}
                   onClick={() => setLoading(!isLoading)}
                 >
-                  {isLoading ? '停止加载' : '开始加载'}
+                  {isLoading ? "停止加载" : "开始加载"}
                 </Button>
               </div>
             </div>
@@ -59,10 +63,18 @@ function AppStateDemo() {
                 <Button size="sm" onClick={toggleSidebar}>
                   切换
                 </Button>
-                <Button size="sm" variant="outline" onClick={() => setSidebarOpen(true)}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => setSidebarOpen(true)}
+                >
                   打开
                 </Button>
-                <Button size="sm" variant="outline" onClick={() => setSidebarOpen(false)}>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => setSidebarOpen(false)}
+                >
                   关闭
                 </Button>
               </div>
@@ -71,15 +83,15 @@ function AppStateDemo() {
             <div className="space-y-2">
               <span className="text-sm">错误信息:</span>
               <div className="flex gap-2">
-                <Button 
-                  size="sm" 
+                <Button
+                  size="sm"
                   variant="secondary"
-                  onClick={() => setError('这是一个测试错误')}
+                  onClick={() => setError("这是一个测试错误")}
                 >
                   设置错误
                 </Button>
-                <Button 
-                  size="sm" 
+                <Button
+                  size="sm"
                   variant="outline"
                   onClick={() => setError(null)}
                 >
@@ -90,9 +102,9 @@ function AppStateDemo() {
           </div>
 
           <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm space-y-1">
-            <div>加载中: {isLoading ? '是' : '否'}</div>
-            <div>侧边栏: {sidebarOpen ? '打开' : '关闭'}</div>
-            <div>错误: {error || '无'}</div>
+            <div>加载中: {isLoading ? "是" : "否"}</div>
+            <div>侧边栏: {sidebarOpen ? "打开" : "关闭"}</div>
+            <div>错误: {error || "无"}</div>
           </div>
         </div>
       </CardContent>
@@ -120,24 +132,24 @@ function ThemeStateDemo() {
             </div>
 
             <div className="flex gap-2">
-              <Button 
-                size="sm" 
-                variant={theme === 'light' ? 'primary' : 'outline'}
-                onClick={() => setTheme('light')}
+              <Button
+                size="sm"
+                variant={theme === "light" ? "primary" : "outline"}
+                onClick={() => setTheme("light")}
               >
                 亮色
               </Button>
-              <Button 
-                size="sm" 
-                variant={theme === 'dark' ? 'primary' : 'outline'}
-                onClick={() => setTheme('dark')}
+              <Button
+                size="sm"
+                variant={theme === "dark" ? "primary" : "outline"}
+                onClick={() => setTheme("dark")}
               >
                 暗色
               </Button>
-              <Button 
-                size="sm" 
-                variant={theme === 'system' ? 'primary' : 'outline'}
-                onClick={() => setTheme('system')}
+              <Button
+                size="sm"
+                variant={theme === "system" ? "primary" : "outline"}
+                onClick={() => setTheme("system")}
               >
                 系统
               </Button>
@@ -150,8 +162,8 @@ function ThemeStateDemo() {
 
           <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm space-y-1">
             <div>主题模式: {theme}</div>
-            <div>当前是暗色: {isDark ? '是' : '否'}</div>
-            <div>HTML类名: {isDark ? 'dark' : 'light'}</div>
+            <div>当前是暗色: {isDark ? "是" : "否"}</div>
+            <div>HTML类名: {isDark ? "dark" : "light"}</div>
           </div>
         </div>
       </CardContent>
@@ -161,26 +173,26 @@ function ThemeStateDemo() {
 
 // 用户状态演示
 function UserStateDemo() {
-  const { 
-    user, 
-    isAuthenticated, 
-    login, 
-    logout, 
-    updateUser 
+  const {
+    user,
+    isAuthenticated,
+    login,
+    logout,
+    updateUser,
   } = useUserStore();
 
   const handleLogin = () => {
     login({
-      id: '1',
-      name: '张三',
-      email: 'zhangsan@example.com',
-      role: 'user'
+      id: "1",
+      name: "张三",
+      email: "zhangsan@example.com",
+      role: "user",
     });
   };
 
   const handleUpdateName = () => {
     if (user) {
-      updateUser({ name: '李四' });
+      updateUser({ name: "李四" });
     }
   };
 
@@ -194,44 +206,52 @@ function UserStateDemo() {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm">登录状态:</span>
-              <span className={`px-2 py-1 rounded text-sm ${
-                isAuthenticated 
-                  ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' 
-                  : 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
-              }`}>
-                {isAuthenticated ? '已登录' : '未登录'}
+              <span
+                className={`px-2 py-1 rounded text-sm ${
+                  isAuthenticated
+                    ? "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
+                    : "bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200"
+                }`}
+              >
+                {isAuthenticated ? "已登录" : "未登录"}
               </span>
             </div>
 
             <div className="flex gap-2">
-              {!isAuthenticated ? (
-                <Button size="sm" onClick={handleLogin}>
-                  模拟登录
-                </Button>
-              ) : (
-                <>
-                  <Button size="sm" variant="outline" onClick={handleUpdateName}>
-                    更新姓名
+              {!isAuthenticated
+                ? (
+                  <Button size="sm" onClick={handleLogin}>
+                    模拟登录
                   </Button>
-                  <Button size="sm" variant="secondary" onClick={logout}>
-                    退出登录
-                  </Button>
-                </>
-              )}
+                )
+                : (
+                  <>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={handleUpdateName}
+                    >
+                      更新姓名
+                    </Button>
+                    <Button size="sm" variant="secondary" onClick={logout}>
+                      退出登录
+                    </Button>
+                  </>
+                )}
             </div>
           </div>
 
           <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm space-y-1">
-            {user ? (
-              <>
-                <div>ID: {user.id}</div>
-                <div>姓名: {user.name}</div>
-                <div>邮箱: {user.email}</div>
-                <div>角色: {user.role}</div>
-              </>
-            ) : (
-              <div>未登录</div>
-            )}
+            {user
+              ? (
+                <>
+                  <div>ID: {user.id}</div>
+                  <div>姓名: {user.name}</div>
+                  <div>邮箱: {user.email}</div>
+                  <div>角色: {user.role}</div>
+                </>
+              )
+              : <div>未登录</div>}
           </div>
         </div>
       </CardContent>
@@ -273,8 +293,8 @@ function PersistenceDemo() {
             </p>
           </div>
 
-          <Button 
-            size="sm" 
+          <Button
+            size="sm"
             variant="outline"
             onClick={() => {
               localStorage.clear();

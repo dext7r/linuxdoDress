@@ -1,13 +1,22 @@
-import { useState } from 'preact/hooks';
-import Button from '../components/ui/Button.tsx';
-import Card, { CardHeader, CardTitle, CardContent, CardFooter } from '../components/ui/Card.tsx';
-import Input from '../components/ui/Input.tsx';
-import Modal, { ModalHeader, ModalBody, ModalFooter } from '../components/ui/Modal.tsx';
+import { useState } from "preact/hooks";
+import Button from "../components/ui/Button.tsx";
+import Card, {
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/Card.tsx";
+import Input from "../components/ui/Input.tsx";
+import Modal, {
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+} from "../components/ui/Modal.tsx";
 
 export default function ComponentsDemo() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [inputValue, setInputValue] = useState('');
-  const [floatingValue, setFloatingValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
+  const [floatingValue, setFloatingValue] = useState("");
 
   return (
     <div className="space-y-8">
@@ -20,7 +29,9 @@ export default function ComponentsDemo() {
           <div className="space-y-6">
             {/* 按钮变体 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">变体</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                变体
+              </h4>
               <div className="flex flex-wrap gap-3">
                 <Button variant="primary">Primary</Button>
                 <Button variant="secondary">Secondary</Button>
@@ -33,7 +44,9 @@ export default function ComponentsDemo() {
 
             {/* 按钮尺寸 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">尺寸</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                尺寸
+              </h4>
               <div className="flex items-center gap-3">
                 <Button size="sm">Small</Button>
                 <Button size="md">Medium</Button>
@@ -43,7 +56,9 @@ export default function ComponentsDemo() {
 
             {/* 按钮状态 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">状态</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                状态
+              </h4>
               <div className="flex gap-3">
                 <Button loading>Loading</Button>
                 <Button disabled>Disabled</Button>
@@ -99,7 +114,9 @@ export default function ComponentsDemo() {
           <div className="space-y-6">
             {/* 基础输入框 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">基础输入框</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                基础输入框
+              </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   label="用户名"
@@ -118,7 +135,9 @@ export default function ComponentsDemo() {
 
             {/* 浮动标签输入框 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">浮动标签</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                浮动标签
+              </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   variant="floating"
@@ -138,7 +157,9 @@ export default function ComponentsDemo() {
 
             {/* 输入框尺寸 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">尺寸</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                尺寸
+              </h4>
               <div className="space-y-3">
                 <Input size="sm" placeholder="小尺寸输入框" />
                 <Input size="md" placeholder="中等尺寸输入框" />
@@ -175,7 +196,9 @@ export default function ComponentsDemo() {
           <div className="space-y-6">
             {/* 动画 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">动画效果</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                动画效果
+              </h4>
               <div className="flex gap-4">
                 <div className="animate-fade-in p-4 bg-blue-100 dark:bg-blue-900 rounded-lg">
                   淡入动画
@@ -188,7 +211,9 @@ export default function ComponentsDemo() {
 
             {/* 文本渐变 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">文本渐变</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                文本渐变
+              </h4>
               <h2 className="text-2xl font-bold text-gradient">
                 这是渐变文本效果
               </h2>
@@ -196,7 +221,9 @@ export default function ComponentsDemo() {
 
             {/* 玻璃态效果 */}
             <div>
-              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">玻璃态效果</h4>
+              <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
+                玻璃态效果
+              </h4>
               <div className="glass-effect p-4 rounded-lg">
                 这是玻璃态背景效果
               </div>
