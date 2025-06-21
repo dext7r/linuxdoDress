@@ -27,7 +27,9 @@
     "type": "git",
     "url": "https://github.com/dext7r/athena.git"
   },
-  "bugs": { "url": "https://github.com/dext7r/athena/issues" },
+  "bugs": {
+    "url": "https://github.com/dext7r/athena/issues"
+  },
   "issues": "https://github.com/dext7r/athena/issues",
   "homepage": "https://athena.deno.dev",
   "tasks": {
@@ -39,8 +41,17 @@
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "exclude": ["**/_fresh/*"],
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
     "preact": "https://esm.sh/preact@10.22.0",
@@ -52,13 +63,19 @@
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "sass": "npm:sass@1.69.5",
     "zustand": "npm:zustand@4.4.7",
+    "djwt": "https://deno.land/x/djwt@v3.0.2/mod.ts",
     "$std/": "https://deno.land/std@0.216.0/"
   },
-  "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
   "nodeModulesDir": "auto",
   "deploy": {
     "project": "f95080ed-9b8c-4d2f-ac7a-07bf7571416a",
-    "exclude": ["**/node_modules"],
+    "exclude": [
+      "**/node_modules"
+    ],
     "include": [],
     "entrypoint": "main.ts"
   }

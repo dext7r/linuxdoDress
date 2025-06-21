@@ -5,11 +5,17 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $about from "./routes/about.tsx";
+import * as $admin from "./routes/admin.tsx";
+import * as $api_auth_callback from "./routes/api/auth/callback.ts";
+import * as $api_auth_github from "./routes/api/auth/github.ts";
+import * as $api_auth_logout from "./routes/api/auth/logout.ts";
+import * as $api_auth_me from "./routes/api/auth/me.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $components from "./routes/components.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $hooks from "./routes/hooks.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $profile from "./routes/profile.tsx";
 import * as $state from "./routes/state.tsx";
 import * as $status_401 from "./routes/status/401.tsx";
 import * as $status_403 from "./routes/status/403.tsx";
@@ -17,6 +23,7 @@ import * as $status_500 from "./routes/status/500.tsx";
 import * as $status_502 from "./routes/status/502.tsx";
 import * as $status_503 from "./routes/status/503.tsx";
 import * as $status_index from "./routes/status/index.tsx";
+import * as $AuthMenu from "./islands/AuthMenu.tsx";
 import * as $ComponentsDemo from "./islands/ComponentsDemo.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $CounterDemo from "./islands/CounterDemo.tsx";
@@ -36,11 +43,17 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/about.tsx": $about,
+    "./routes/admin.tsx": $admin,
+    "./routes/api/auth/callback.ts": $api_auth_callback,
+    "./routes/api/auth/github.ts": $api_auth_github,
+    "./routes/api/auth/logout.ts": $api_auth_logout,
+    "./routes/api/auth/me.ts": $api_auth_me,
     "./routes/api/joke.ts": $api_joke,
     "./routes/components.tsx": $components,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/hooks.tsx": $hooks,
     "./routes/index.tsx": $index,
+    "./routes/profile.tsx": $profile,
     "./routes/state.tsx": $state,
     "./routes/status/401.tsx": $status_401,
     "./routes/status/403.tsx": $status_403,
@@ -50,6 +63,7 @@ const manifest = {
     "./routes/status/index.tsx": $status_index,
   },
   islands: {
+    "./islands/AuthMenu.tsx": $AuthMenu,
     "./islands/ComponentsDemo.tsx": $ComponentsDemo,
     "./islands/Counter.tsx": $Counter,
     "./islands/CounterDemo.tsx": $CounterDemo,

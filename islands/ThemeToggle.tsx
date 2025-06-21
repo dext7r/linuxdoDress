@@ -69,8 +69,6 @@ const ThemeToggle = () => {
       const html = document.documentElement;
       const willBeDark = !html.classList.contains("dark");
 
-      console.log("Toggling theme:", { current: isDark, willBeDark });
-
       if (willBeDark) {
         html.classList.add("dark");
         setIsDark(true);

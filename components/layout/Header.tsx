@@ -2,6 +2,7 @@ import { JSX } from "preact";
 import Button from "../ui/Button.tsx";
 import ThemeToggleIsland from "../../islands/ThemeToggle.tsx";
 import HeaderNavigationIsland from "../../islands/HeaderNavigation.tsx";
+import AuthMenuIsland from "../../islands/AuthMenu.tsx";
 
 interface HeaderProps {
   title?: string;
@@ -69,7 +70,7 @@ const Header = ({
           {showThemeToggle && <ThemeToggleIsland />}
 
           {/* 用户菜单 */}
-          {showUserMenu && <UserMenu />}
+          {showUserMenu && <AuthMenuIsland />}
         </div>
       </div>
     </header>
@@ -100,22 +101,6 @@ const MenuIcon = () => (
   </svg>
 );
 
-// 用户菜单组件
-const UserMenu = () => {
-  return (
-    <div className="relative">
-      <Button
-        variant="ghost"
-        size="sm"
-        className="rounded-full p-2"
-        aria-label="用户菜单"
-      >
-        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-medium">
-          U
-        </div>
-      </Button>
-    </div>
-  );
-};
+
 
 export default Header;
