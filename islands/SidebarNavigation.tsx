@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import { JSX } from "preact";
 
 // 导航状态钩子
 function useNavigationState() {
@@ -39,7 +40,7 @@ interface MenuItem {
 }
 
 // 图标映射
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, JSX.Element> = {
   home: (
     <svg
       className="w-5 h-5"

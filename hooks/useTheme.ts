@@ -19,8 +19,8 @@ export function useTheme() {
     initializeTheme();
 
     // 监听系统主题变化
-    if (typeof window !== "undefined" && theme === "system") {
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    if (typeof globalThis.matchMedia !== "undefined" && theme === "system") {
+      const mediaQuery = globalThis.matchMedia("(prefers-color-scheme: dark)");
 
       const handleChange = () => {
         if (theme === "system") {

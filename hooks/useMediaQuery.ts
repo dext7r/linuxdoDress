@@ -9,11 +9,11 @@ export function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState<boolean>(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
+    if (typeof globalThis.matchMedia === "undefined") {
       return;
     }
 
-    const mediaQuery = window.matchMedia(query);
+    const mediaQuery = globalThis.matchMedia(query);
     setMatches(mediaQuery.matches);
 
     const handler = (event: MediaQueryListEvent) => {

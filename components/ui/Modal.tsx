@@ -1,7 +1,6 @@
 import { JSX } from "preact";
 import { useEffect } from "preact/hooks";
 import { createPortal } from "preact/compat";
-import Button from "./Button.tsx";
 
 interface ModalProps {
   isOpen: boolean;
@@ -77,6 +76,7 @@ const Modal = ({
             )}
             {showCloseButton && (
               <button
+                type="button"
                 onClick={onClose}
                 className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 aria-label="关闭"

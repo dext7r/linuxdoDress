@@ -2,16 +2,11 @@ import { useState } from "preact/hooks";
 import Button from "../components/ui/Button.tsx";
 import Card, {
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../components/ui/Card.tsx";
 import Input from "../components/ui/Input.tsx";
-import Modal, {
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-} from "../components/ui/Modal.tsx";
+import Modal, { ModalBody, ModalFooter } from "../components/ui/Modal.tsx";
 
 export default function ComponentsDemo() {
   const [modalOpen, setModalOpen] = useState(false);

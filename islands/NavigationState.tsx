@@ -53,7 +53,7 @@ export function useNavigationState() {
 
 // 导航状态提供者组件（如果需要全局状态）
 export default function NavigationStateProvider(
-  { children }: { children: any },
+  { children }: { children: preact.ComponentChildren },
 ) {
   return <div>{children}</div>;
 }

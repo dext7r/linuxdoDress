@@ -9,8 +9,8 @@ interface FetchState<T> {
 interface FetchOptions {
   method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   headers?: Record<string, string>;
-  body?: any;
-  dependencies?: any[];
+  body?: unknown;
+  dependencies?: unknown[];
 }
 
 /**
@@ -19,7 +19,7 @@ interface FetchOptions {
  * @param options 请求选项
  * @returns { data, loading, error, refetch }
  */
-export function useFetch<T = any>(
+export function useFetch<T = unknown>(
   url: string | null,
   options: FetchOptions = {},
 ): FetchState<T> & { refetch: () => void } {

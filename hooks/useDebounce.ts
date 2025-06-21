@@ -31,10 +31,10 @@ export function useDebounce<T>(value: T, delay: number): T {
  * @param deps 依赖数组
  * @returns 防抖后的回调函数
  */
-export function useDebouncedCallback<T extends (...args: any[]) => any>(
+export function useDebouncedCallback<T extends (...args: unknown[]) => unknown>(
   callback: T,
   delay: number,
-  deps: any[] = [],
+  deps: unknown[] = [],
 ): T {
   const [debouncedCallback, setDebouncedCallback] = useState<T>(() => callback);
 

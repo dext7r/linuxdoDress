@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/dext7r/athena/blob/main/LICENSE)
 [![Deno](https://img.shields.io/badge/deno-2.0+-black.svg)](https://deno.land/)
 [![Fresh](https://img.shields.io/badge/fresh-1.7.3-yellow.svg)](https://fresh.deno.dev/)
+[![Deploy](https://github.com/dext7r/athena/actions/workflows/deploy.yml/badge.svg)](https://github.com/dext7r/athena/actions/workflows/deploy.yml)
 
 一个现代化的 React + Deno 全栈开发模板，集成了 TailwindCSS + Sass +
 Zustand，为您提供完整的项目基础架构。
