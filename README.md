@@ -9,12 +9,12 @@
 一个现代化的 React + Deno 全栈开发模板，集成了 TailwindCSS + Sass +
 Zustand，为您提供完整的项目基础架构。
 
-**作者：** h7ml <h7ml@h7ml.com> **仓库：**
-[https://github.com/dext7r/athena.git](https://github.com/dext7r/athena.git)
-**主页：** [https://athena.deno.dev](https://athena.deno.dev) **问题反馈：**
-[https://github.com/dext7r/athena/issues](https://github.com/dext7r/athena/issues)
-**demo：** [https://athena.deno.dev](https://athena.deno.dev) **文档：**
-[https://athena.deno.dev/docs](https://athena.deno.dev/docs)
+**作者：** h7ml <h7ml@h7ml.com>
+**仓库：** [https://github.com/dext7r/athena.git](https://github.com/dext7r/athena.git)
+**主页：** [https://athena.deno.dev](https://athena.deno.dev)
+**问题反馈：** [https://github.com/dext7r/athena/issues](https://github.com/dext7r/athena/issues)
+**demo：** [https://athena.deno.dev](https://athena.deno.dev)
+**文档：** [https://athena.deno.dev/docs](https://athena.deno.dev/docs)
 
 ## 🚀 技术栈
 
