@@ -51,7 +51,7 @@ export default function ProfilePage({ data }: PageProps<ProfilePageProps>) {
   return (
     <>
       <Head>
-        <title>用户资料 - {user.name || user.username} - Athena Template</title>
+        <title>用户资料 - {user.name || user.username} - Yunyuan Template</title>
         <meta name="description" content={`${user.name || user.username} 的用户资料页面`} />
       </Head>
       <Layout title="用户资料">

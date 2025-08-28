@@ -1,13 +1,13 @@
 <div align="center">
 
-# 🏛️ Athena Template
+# 🏛️ Yunyuan Template
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-0.0.1-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/deno-2.0+-black.svg" alt="Deno">
   <img src="https://img.shields.io/badge/fresh-1.7.3-yellow.svg" alt="Fresh">
-  <img src="https://github.com/dext7r/athena/actions/workflows/deploy.yml/badge.svg" alt="Deploy">
+  <img src="https://github.com/dext7r/Yunyuan/actions/workflows/deploy.yml/badge.svg" alt="Deploy">
 </p>
 
 <p align="center">
@@ -16,10 +16,10 @@
 </p>
 
 <p align="center">
-  <a href="https://athena.deno.dev">🌐 在线演示</a> •
-  <a href="https://github.com/dext7r/athena">📦 GitHub</a> •
-  <a href="https://athena.deno.dev/docs">📚 文档</a> •
-  <a href="https://github.com/dext7r/athena/issues">🐛 问题反馈</a>
+  <a href="https://Yunyuan.deno.dev">🌐 在线演示</a> •
+  <a href="https://github.com/dext7r/Yunyuan">📦 GitHub</a> •
+  <a href="https://Yunyuan.deno.dev/docs">📚 文档</a> •
+  <a href="https://github.com/dext7r/Yunyuan/issues">🐛 问题反馈</a>
 </p>
 
 </div>
@@ -35,15 +35,15 @@
 </tr>
 <tr>
 <td><strong>🔗 仓库</strong></td>
-<td><a href="https://github.com/dext7r/athena">github.com/dext7r/athena</a></td>
+<td><a href="https://github.com/dext7r/Yunyuan">github.com/dext7r/Yunyuan</a></td>
 </tr>
 <tr>
 <td><strong>🌐 主页</strong></td>
-<td><a href="https://athena.deno.dev">athena.deno.dev</a></td>
+<td><a href="https://Yunyuan.deno.dev">Yunyuan.deno.dev</a></td>
 </tr>
 <tr>
 <td><strong>📖 文档</strong></td>
-<td><a href="https://athena.deno.dev/docs">athena.deno.dev/docs</a></td>
+<td><a href="https://Yunyuan.deno.dev/docs">Yunyuan.deno.dev/docs</a></td>
 </tr>
 </table>
 
@@ -51,16 +51,16 @@
 
 <div align="center">
 
-| 🛠️ 技术 | 📦 版本 | 📝 描述 |
-|:---:|:---:|:---|
-| **[Fresh](https://fresh.deno.dev/)** | `1.7.3` | 🌊 Deno 的现代 Web 框架 |
-| **[Preact](https://preactjs.com/)** | `10.22.0` | ⚛️ 轻量级 React 替代方案 |
-| **[TailwindCSS](https://tailwindcss.com/)** | `3.4.1` | 🎨 原子化 CSS 框架 |
-| **[Sass](https://sass-lang.com/)** | `1.69.5` | 💅 CSS 预处理器 |
-| **[Zustand](https://zustand-demo.pmnd.rs/)** | `4.4.7` | 🐻 轻量级状态管理 |
-| **[TypeScript](https://www.typescriptlang.org/)** | `Latest` | 🔷 类型安全的 JavaScript |
-| **[Preact Signals](https://preactjs.com/guide/v10/signals/)** | `1.2.2` | 📡 响应式状态管理 |
-| **[Deno Standard Library](https://deno.land/std)** | `0.216.0` | 📚 Deno 标准库 |
+|                            🛠️ 技术                            |  📦 版本  | 📝 描述                  |
+| :-----------------------------------------------------------: | :-------: | :----------------------- |
+|             **[Fresh](https://fresh.deno.dev/)**              |  `1.7.3`  | 🌊 Deno 的现代 Web 框架  |
+|              **[Preact](https://preactjs.com/)**              | `10.22.0` | ⚛️ 轻量级 React 替代方案 |
+|          **[TailwindCSS](https://tailwindcss.com/)**          |  `3.4.1`  | 🎨 原子化 CSS 框架       |
+|              **[Sass](https://sass-lang.com/)**               | `1.69.5`  | 💅 CSS 预处理器          |
+|         **[Zustand](https://zustand-demo.pmnd.rs/)**          |  `4.4.7`  | 🐻 轻量级状态管理        |
+|       **[TypeScript](https://www.typescriptlang.org/)**       | `Latest`  | 🔷 类型安全的 JavaScript |
+| **[Preact Signals](https://preactjs.com/guide/v10/signals/)** |  `1.2.2`  | 📡 响应式状态管理        |
+|      **[Deno Standard Library](https://deno.land/std)**       | `0.216.0` | 📚 Deno 标准库           |
 
 </div>
 
@@ -68,10 +68,10 @@
 
 <div align="center">
 
-| 🎨 UI 组件 | 🔧 开发工具 | 🌙 用户体验 | ⚡ 性能优化 |
-|:---:|:---:|:---:|:---:|
+|                    🎨 UI 组件                     |                          🔧 开发工具                           |               🌙 用户体验                |           ⚡ 性能优化            |
+| :-----------------------------------------------: | :------------------------------------------------------------: | :--------------------------------------: | :------------------------------: |
 | **丰富的组件库**<br>Button、Card、Input、Modal 等 | **实用 Hooks 库**<br>useLocalStorage、useDebounce、useFetch 等 | **主题切换系统**<br>亮色、暗色、系统主题 | **Islands 架构**<br>最佳性能表现 |
-| **响应式设计**<br>完美适配多端设备 | **类型安全**<br>全面 TypeScript 支持 | **状态持久化**<br>自动保存用户偏好 | **SSR 兼容**<br>服务端渲染支持 |
+|        **响应式设计**<br>完美适配多端设备         |              **类型安全**<br>全面 TypeScript 支持              |    **状态持久化**<br>自动保存用户偏好    |  **SSR 兼容**<br>服务端渲染支持  |
 
 </div>
 
@@ -82,6 +82,7 @@
 <td width="50%">
 
 **🎨 UI & 设计**
+
 - ✅ 丰富的 UI 组件库
 - ✅ 响应式设计系统
 - ✅ 主题切换支持
@@ -92,6 +93,7 @@
 <td width="50%">
 
 **🔧 开发体验**
+
 - ✅ TypeScript 类型安全
 - ✅ 热重载开发服务器
 - ✅ 代码格式化和 Lint
@@ -104,6 +106,7 @@
 <td>
 
 **⚡ 性能优化**
+
 - ✅ Islands 架构
 - ✅ 服务端渲染 (SSR)
 - ✅ 按需加载
@@ -114,6 +117,7 @@
 <td>
 
 **�️ 工具集成**
+
 - ✅ 实用 Hooks 库
 - ✅ 状态管理 (Zustand)
 - ✅ 样式系统 (TailwindCSS + Sass)
@@ -140,8 +144,8 @@
 
 ```bash
 # 📥 克隆项目
-git clone https://github.com/dext7r/athena.git
-cd athena
+git clone https://github.com/dext7r/Yunyuan.git
+cd Yunyuan
 
 # 🚀 启动开发服务器
 deno task start
@@ -157,14 +161,14 @@ deno task start
 
 <div align="center">
 
-| 🎯 命令 | 📝 描述 | 🔧 用途 |
-|:---:|:---|:---|
-| `deno task start` | 🔥 启动开发服务器 | 开发时使用，支持热重载 |
-| `deno task build` | 📦 构建生产版本 | 生产环境构建 |
-| `deno task preview` | 👀 预览生产版本 | 本地预览生产构建 |
-| `deno task check` | ✅ 代码质量检查 | 格式化、Lint、类型检查 |
-| `deno task manifest` | 📋 生成清单文件 | Fresh 框架清单 |
-| `deno task update` | 🔄 更新框架 | 更新到最新版本 |
+|       🎯 命令        | 📝 描述           | 🔧 用途                |
+| :------------------: | :---------------- | :--------------------- |
+|  `deno task start`   | 🔥 启动开发服务器 | 开发时使用，支持热重载 |
+|  `deno task build`   | 📦 构建生产版本   | 生产环境构建           |
+| `deno task preview`  | 👀 预览生产版本   | 本地预览生产构建       |
+|  `deno task check`   | ✅ 代码质量检查   | 格式化、Lint、类型检查 |
+| `deno task manifest` | 📋 生成清单文件   | Fresh 框架清单         |
+|  `deno task update`  | 🔄 更新框架       | 更新到最新版本         |
 
 </div>
 
@@ -183,17 +187,17 @@ deno task start
 #### 🎨 **1. 使用组件**
 
 ```tsx
-import Button from "../components/ui/Button.tsx";
-import Card from "../components/ui/Card.tsx";
+import Button from '../components/ui/Button.tsx'
+import Card from '../components/ui/Card.tsx'
 
 function MyComponent() {
   return (
     <Card>
-      <Button variant="primary" size="lg">
+      <Button variant='primary' size='lg'>
         点击我
       </Button>
     </Card>
-  );
+  )
 }
 ```
 
@@ -203,20 +207,13 @@ function MyComponent() {
 #### 🔧 **2. 自定义 Hooks**
 
 ```tsx
-import {
-  useDebounce,
-  useLocalStorage
-} from "../hooks/index.ts";
+import { useDebounce, useLocalStorage } from '../hooks/index.ts'
 
 function MyComponent() {
-  const [value, setValue] = useLocalStorage(
-    "key", "default"
-  );
-  const debouncedValue = useDebounce(
-    value, 500
-  );
+  const [value, setValue] = useLocalStorage('key', 'default')
+  const debouncedValue = useDebounce(value, 500)
 
-  return <div>{debouncedValue}</div>;
+  return <div>{debouncedValue}</div>
 }
 ```
 
@@ -226,18 +223,16 @@ function MyComponent() {
 #### 💾 **3. 状态管理**
 
 ```tsx
-import { useAppStore } from "../stores/useAppStore.ts";
+import { useAppStore } from '../stores/useAppStore.ts'
 
 function MyComponent() {
-  const { isLoading, setLoading } = useAppStore();
+  const { isLoading, setLoading } = useAppStore()
 
   return (
-    <button
-      onClick={() => setLoading(!isLoading)}
-    >
-      {isLoading ? "加载中..." : "开始加载"}
+    <button onClick={() => setLoading(!isLoading)}>
+      {isLoading ? '加载中...' : '开始加载'}
     </button>
-  );
+  )
 }
 ```
 
@@ -258,6 +253,7 @@ function MyComponent() {
 <td width="50%" align="center">
 
 ### 🌊 TailwindCSS
+
 **原子化 CSS 框架**
 
 ✅ 快速原型开发
@@ -266,15 +262,14 @@ function MyComponent() {
 ✅ 暗色主题支持
 
 ```html
-<div class="bg-blue-500 text-white p-4 rounded-lg">
-  快速样式
-</div>
+<div class="bg-blue-500 text-white p-4 rounded-lg">快速样式</div>
 ```
 
 </td>
 <td width="50%" align="center">
 
 ### 🎯 Sass
+
 **CSS 预处理器**
 
 ✅ 复杂样式逻辑
@@ -285,7 +280,9 @@ function MyComponent() {
 ```scss
 .custom-component {
   @include theme-colors;
-  &:hover { transform: scale(1.05); }
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 ```
 
@@ -306,7 +303,7 @@ function MyComponent() {
 <td width="50%">
 
 ```text
-📦 athena/
+📦 Yunyuan/
 ├── 🎨 components/          # 可复用组件
 │   ├── 🧩 ui/             # 基础 UI 组件
 │   ├── 📐 layout/         # 布局组件
@@ -423,9 +420,9 @@ deno task preview
 
 ### 💝 我们欢迎所有形式的贡献
 
-[![Contributors](https://img.shields.io/github/contributors/dext7r/athena?style=for-the-badge)](https://github.com/dext7r/athena/graphs/contributors)
-[![Issues](https://img.shields.io/github/issues/dext7r/athena?style=for-the-badge)](https://github.com/dext7r/athena/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/dext7r/athena?style=for-the-badge)](https://github.com/dext7r/athena/pulls)
+[![Contributors](https://img.shields.io/github/contributors/dext7r/Yunyuan?style=for-the-badge)](https://github.com/dext7r/Yunyuan/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/dext7r/Yunyuan?style=for-the-badge)](https://github.com/dext7r/Yunyuan/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/dext7r/Yunyuan?style=for-the-badge)](https://github.com/dext7r/Yunyuan/pulls)
 
 </div>
 
@@ -468,7 +465,7 @@ deno task preview
 
 ```bash
 # 🍴 Fork 并克隆
-git clone https://github.com/YOUR_USERNAME/athena.git
+git clone https://github.com/YOUR_USERNAME/Yunyuan.git
 
 # 🌿 创建分支
 git checkout -b feature/AmazingFeature
@@ -501,7 +498,7 @@ git push origin feature/AmazingFeature
 
 ### 🌟 如果这个项目对您有帮助，请给我们一个 Star
 
-[![GitHub stars](https://img.shields.io/github/stars/dext7r/athena?style=social)](https://github.com/dext7r/athena/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/dext7r/Yunyuan?style=social)](https://github.com/dext7r/Yunyuan/stargazers)
 
 **感谢您的支持！** 🙏
 

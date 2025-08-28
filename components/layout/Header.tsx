@@ -15,7 +15,7 @@ interface HeaderProps {
 }
 
 const Header = ({
-  title = "Athena Template",
+  title = "Yunyuan Template",
   showSidebarToggle = true,
   onSidebarToggle,
   showThemeToggle = true,

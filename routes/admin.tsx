@@ -36,7 +36,7 @@ export const handler = {
         `<!DOCTYPE html>
         <html>
         <head>
-          <title>访问被拒绝 - Athena Template</title>
+          <title>访问被拒绝 - Yunyuan Template</title>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <script src="https://cdn.tailwindcss.com"></script>
@@ -71,7 +71,7 @@ export default function AdminPage({ data }: PageProps<AdminPageProps>) {
   return (
     <>
       <Head>
-        <title>管理员面板 - Athena Template</title>
+        <title>管理员面板 - Yunyuan Template</title>
         <meta name="description" content="系统管理员控制面板" />
       </Head>
       <Layout title="管理员面板">

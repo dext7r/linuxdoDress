@@ -157,7 +157,7 @@ export default function StatusCodesPage() {
   return (
     <>
       <Head>
-        <title>HTTP状态码演示 - Athena Template</title>
+        <title>HTTP状态码演示 - Yunyuan Template</title>
         <meta
           name="description"
           content="展示常见的HTTP错误状态码页面设计，包括401、403、404、500、502、503等状态码的用户友好页面。"
@@ -166,7 +166,7 @@ export default function StatusCodesPage() {
           name="keywords"
           content="HTTP状态码, 错误页面, 401, 403, 404, 500, 502, 503, 用户体验"
         />
-        <meta property="og:title" content="HTTP状态码演示 - Athena Template" />
+        <meta property="og:title" content="HTTP状态码演示 - Yunyuan Template" />
         <meta
           property="og:description"
           content="展示常见的HTTP错误状态码页面设计，包括401、403、404、500、502、503等状态码的用户友好页面。"

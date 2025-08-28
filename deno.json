@@ -1,6 +1,6 @@
 {
   "lock": false,
-  "name": "athena",
+  "name": "Yunyuan",
   "version": "0.0.1",
   "description": "一个现代化的 React + Deno 全栈开发模板， 集成了 TailwindCSS + Sass + Zustand， 为您提供完整的项目基础架构。",
   "keywords": [
@@ -25,13 +25,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dext7r/athena.git"
+    "url": "https://github.com/dext7r/Yunyuan.git"
   },
   "bugs": {
-    "url": "https://github.com/dext7r/athena/issues"
+    "url": "https://github.com/dext7r/Yunyuan/issues"
   },
-  "issues": "https://github.com/dext7r/athena/issues",
-  "homepage": "https://athena.deno.dev",
+  "issues": "https://github.com/dext7r/Yunyuan/issues",
+  "homepage": "https://Yunyuan.deno.dev",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",

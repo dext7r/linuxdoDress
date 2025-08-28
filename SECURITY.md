@@ -10,7 +10,7 @@
 
 ## 报告安全漏洞
 
-我们非常重视 Athena Template
+我们非常重视 Yunyuan Template
 的安全性。如果您发现了安全漏洞，请负责任地向我们披露。
 
 ### 如何报告
@@ -20,13 +20,14 @@
 相反，请通过以下方式之一报告：
 
 1. **推荐方式**: 使用 GitHub 的私密安全报告功能
+
    - 访问
-     [Security Advisories](https://github.com/dext7r/athena/security/advisories/new)
+     [Security Advisories](https://github.com/dext7r/Yunyuan/security/advisories/new)
    - 点击 "Report a vulnerability"
    - 填写详细信息
 
 2. **邮件报告**: 发送邮件至 h7ml@h7ml.com
-   - 邮件主题：`[SECURITY] Athena Template 安全漏洞报告`
+   - 邮件主题：`[SECURITY] Yunyuan Template 安全漏洞报告`
    - 请在邮件中包含尽可能多的信息
 
 ### 报告内容
@@ -128,7 +129,7 @@
 
 ## 致谢
 
-我们感谢安全研究人员和用户帮助保持 Athena Template
+我们感谢安全研究人员和用户帮助保持 Yunyuan Template
 的安全。负责任地报告安全问题的研究人员将在修复发布后得到适当的致谢（除非他们希望保持匿名）。
 
 ## 联系信息

@@ -6,7 +6,7 @@ export default function HooksPage() {
   return (
     <>
       <Head>
-        <title>Hooks演示 - Athena Template</title>
+        <title>Hooks演示 - Yunyuan Template</title>
         <meta
           name="description"
           content="展示各种实用的自定义 Hooks 及其使用方法，包括useLocalStorage、useDebounce、useFetch、useMediaQuery等。"
@@ -15,7 +15,7 @@ export default function HooksPage() {
           name="keywords"
           content="React Hooks, useLocalStorage, useDebounce, useFetch, useMediaQuery, 自定义Hooks"
         />
-        <meta property="og:title" content="Hooks演示 - Athena Template" />
+        <meta property="og:title" content="Hooks演示 - Yunyuan Template" />
         <meta
           property="og:description"
           content="展示各种实用的自定义 Hooks 及其使用方法，包括useLocalStorage、useDebounce、useFetch、useMediaQuery等。"

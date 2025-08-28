@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Athena Template - 首页</title>
+        <title>Yunyuan Template - 首页</title>
         <meta
           name="description"
           content="一个现代化的 React + Deno + TailwindCSS + Sass + Zustand 模板项目，集成了完整的组件库、状态管理、自定义Hooks和开发工具配置。"
@@ -22,14 +22,14 @@ export default function Home() {
           name="keywords"
           content="React, Deno, TailwindCSS, Sass, Zustand, Fresh, TypeScript, 模板, 组件库"
         />
-        <meta property="og:title" content="Athena Template - 首页" />
+        <meta property="og:title" content="Yunyuan Template - 首页" />
         <meta
           property="og:description"
           content="一个现代化的 React + Deno + TailwindCSS + Sass + Zustand 模板项目，集成了完整的组件库、状态管理、自定义Hooks和开发工具配置。"
         />
         <meta property="og:type" content="website" />
       </Head>
-      <Layout title="Athena Template - 首页">
+      <Layout title="Yunyuan Template - 首页">
         <div className="space-y-16">
           {/* Hero区域 */}
           <div className="relative overflow-hidden">
@@ -53,7 +53,7 @@ export default function Home() {
                 </div>
                 <h1 className="text-5xl md:text-7xl font-extrabold">
                   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    Athena
+                    Yunyuan
                   </span>
                   <br />
                   <span className="text-gray-900 dark:text-white">
@@ -96,7 +96,7 @@ export default function Home() {
                   </button>
                 </a>
                 <a
-                  href="https://github.com/dext7r/athena.git"
+                  href="https://github.com/dext7r/Yunyuan.git"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group"

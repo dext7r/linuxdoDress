@@ -11,19 +11,19 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>关于项目 - Athena Template</title>
+        <title>关于项目 - Yunyuan Template</title>
         <meta
           name="description"
-          content="Athena Template是一个现代化的全栈开发模板，集成了Fresh、Preact、TailwindCSS、Sass、Zustand等最新技术栈和最佳实践。"
+          content="Yunyuan Template是一个现代化的全栈开发模板，集成了Fresh、Preact、TailwindCSS、Sass、Zustand等最新技术栈和最佳实践。"
         />
         <meta
           name="keywords"
-          content="Athena Template, Fresh, Preact, TailwindCSS, Sass, Zustand, Deno, TypeScript, 全栈开发, 模板"
+          content="Yunyuan Template, Fresh, Preact, TailwindCSS, Sass, Zustand, Deno, TypeScript, 全栈开发, 模板"
         />
-        <meta property="og:title" content="关于项目 - Athena Template" />
+        <meta property="og:title" content="关于项目 - Yunyuan Template" />
         <meta
           property="og:description"
-          content="Athena Template是一个现代化的全栈开发模板，集成了Fresh、Preact、TailwindCSS、Sass、Zustand等最新技术栈和最佳实践。"
+          content="Yunyuan Template是一个现代化的全栈开发模板，集成了Fresh、Preact、TailwindCSS、Sass、Zustand等最新技术栈和最佳实践。"
         />
         <meta property="og:type" content="website" />
         <meta name="author" content="h7ml <h7ml@qq.com>" />
@@ -50,7 +50,7 @@ export default function AboutPage() {
               </div>
               <h1 className="text-5xl md:text-7xl font-extrabold">
                 <span className="bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                  Athena
+                  Yunyuan
                 </span>
                 <br />
                 <span className="text-gray-900 dark:text-white">Template</span>
@@ -223,7 +223,7 @@ export default function AboutPage() {
             </CardHeader>
             <CardContent>
               <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg font-mono text-sm overflow-x-auto">
-                <pre>{`athena/
+                <pre>{`Yunyuan/
 ├── components/          # UI组件
 │   ├── ui/             # 基础UI组件
 │   ├── layout/         # 布局组件
@@ -257,10 +257,10 @@ export default function AboutPage() {
                 <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg font-mono text-sm">
                   <div className="space-y-2">
                     <div># 克隆项目</div>
-                    <div>git clone https://github.com/dext7r/athena.git</div>
+                    <div>git clone https://github.com/dext7r/Yunyuan.git</div>
                     <div></div>
                     <div># 进入项目目录</div>
-                    <div>cd athena</div>
+                    <div>cd Yunyuan</div>
                     <div></div>
                     <div># 启动开发服务器</div>
                     <div>deno task start</div>
@@ -269,7 +269,7 @@ export default function AboutPage() {
 
                 <div className="flex justify-center gap-4">
                   <a
-                    href="https://github.com/dext7r/athena.git"
+                    href="https://github.com/dext7r/Yunyuan.git"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

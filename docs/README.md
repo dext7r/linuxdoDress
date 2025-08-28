@@ -1,13 +1,13 @@
-# Athena Template 文档
+# Yunyuan Template 文档
 
-欢迎来到 Athena Template 的文档中心！这里包含了项目的详细文档和指南。
+欢迎来到 Yunyuan Template 的文档中心！这里包含了项目的详细文档和指南。
 
 ## 📚 文档目录
 
 ### 快速开始
 
 - [安装指南](installation.md) - 如何安装和设置项目
-- [快速开始](quick-start.md) - 5分钟快速上手指南
+- [快速开始](quick-start.md) - 5 分钟快速上手指南
 - [项目结构](project-structure.md) - 了解项目的组织结构
 
 ### 组件文档
@@ -52,9 +52,9 @@
 
 ## 🚀 快速链接
 
-- [GitHub 仓库](https://github.com/dext7r/athena)
-- [在线演示](https://athena.deno.dev)
-- [问题反馈](https://github.com/dext7r/athena/issues)
+- [GitHub 仓库](https://github.com/dext7r/Yunyuan)
+- [在线演示](https://Yunyuan.deno.dev)
+- [问题反馈](https://github.com/dext7r/Yunyuan/issues)
 - [贡献指南](../CONTRIBUTING.md)
 
 ## 📖 如何使用文档
@@ -69,7 +69,7 @@
 
 如果您发现文档有错误或需要改进，欢迎：
 
-1. 提交 [Issue](https://github.com/dext7r/athena/issues)
+1. 提交 [Issue](https://github.com/dext7r/Yunyuan/issues)
 2. 提交 Pull Request
 3. 联系维护者：h7ml@h7ml.com
 
@@ -79,4 +79,4 @@
 
 ---
 
-感谢您使用 Athena Template！🎉
+感谢您使用 Yunyuan Template！🎉

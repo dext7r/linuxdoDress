@@ -1,6 +1,6 @@
 # 快速开始
 
-本指南将帮助您在 5 分钟内快速上手 Athena Template。
+本指南将帮助您在 5 分钟内快速上手 Yunyuan Template。
 
 ## 🚀 第一步：环境准备
 
@@ -26,12 +26,12 @@ deno --version
 
 ```bash
 # 克隆项目
-git clone https://github.com/dext7r/athena.git
-cd athena
+git clone https://github.com/dext7r/Yunyuan.git
+cd Yunyuan
 
 # 或者使用 GitHub CLI
-gh repo clone dext7r/athena
-cd athena
+gh repo clone dext7r/Yunyuan
+cd Yunyuan
 ```
 
 ## 🏃‍♂️ 第三步：启动项目
@@ -72,24 +72,24 @@ Hooks。
 
 ```tsx
 // routes/my-page.tsx
-import { Head } from "$fresh/runtime.ts";
-import Layout from "../components/layout/Layout.tsx";
-import Button from "../components/ui/Button.tsx";
+import { Head } from '$fresh/runtime.ts'
+import Layout from '../components/layout/Layout.tsx'
+import Button from '../components/ui/Button.tsx'
 
 export default function MyPage() {
   return (
     <>
       <Head>
-        <title>我的页面 - Athena Template</title>
+        <title>我的页面 - Yunyuan Template</title>
       </Head>
-      <Layout title="我的页面">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold mb-4">欢迎来到我的页面</h1>
-          <Button variant="primary">点击我</Button>
+      <Layout title='我的页面'>
+        <div className='text-center'>
+          <h1 className='text-3xl font-bold mb-4'>欢迎来到我的页面</h1>
+          <Button variant='primary'>点击我</Button>
         </div>
       </Layout>
     </>
-  );
+  )
 }
 ```
 
@@ -103,74 +103,72 @@ export default function MyPage() {
 ```tsx
 // components/ui/MyComponent.tsx
 interface MyComponentProps {
-  title: string;
-  children?: React.ComponentChildren;
+  title: string
+  children?: React.ComponentChildren
 }
 
 export default function MyComponent({ title, children }: MyComponentProps) {
   return (
-    <div className="p-4 border rounded-lg">
-      <h2 className="text-xl font-semibold mb-2">{title}</h2>
+    <div className='p-4 border rounded-lg'>
+      <h2 className='text-xl font-semibold mb-2'>{title}</h2>
       {children}
     </div>
-  );
+  )
 }
 ```
 
 2. 在页面中使用：
 
 ```tsx
-import MyComponent from "../components/ui/MyComponent.tsx";
+import MyComponent from '../components/ui/MyComponent.tsx'
 
 // 在组件中使用
-<MyComponent title="我的组件">
+;<MyComponent title='我的组件'>
   <p>这是组件内容</p>
-</MyComponent>;
+</MyComponent>
 ```
 
 ### 使用自定义 Hooks
 
 ```tsx
-import { useLocalStorage, useToggle } from "../hooks/index.ts";
+import { useLocalStorage, useToggle } from '../hooks/index.ts'
 
 export default function MyPage() {
-  const [name, setName] = useLocalStorage("userName", "");
-  const [isVisible, toggleVisible] = useToggle(false);
+  const [name, setName] = useLocalStorage('userName', '')
+  const [isVisible, toggleVisible] = useToggle(false)
 
   return (
     <div>
       <input
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="输入您的姓名"
+        placeholder='输入您的姓名'
       />
-      <button onClick={toggleVisible}>
-        {isVisible ? "隐藏" : "显示"}
-      </button>
+      <button onClick={toggleVisible}>{isVisible ? '隐藏' : '显示'}</button>
       {isVisible && <p>Hello, {name}!</p>}
     </div>
-  );
+  )
 }
 ```
 
 ### 使用状态管理
 
 ```tsx
-import { useAppStore } from "../stores/useAppStore.ts";
+import { useAppStore } from '../stores/useAppStore.ts'
 
 export default function MyPage() {
-  const { isLoading, setLoading } = useAppStore();
+  const { isLoading, setLoading } = useAppStore()
 
   const handleClick = () => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
-  };
+    setLoading(true)
+    setTimeout(() => setLoading(false), 2000)
+  }
 
   return (
     <button onClick={handleClick} disabled={isLoading}>
-      {isLoading ? "加载中..." : "开始加载"}
+      {isLoading ? '加载中...' : '开始加载'}
     </button>
-  );
+  )
 }
 ```
 
@@ -179,9 +177,9 @@ export default function MyPage() {
 ### 使用 TailwindCSS
 
 ```tsx
-<div className="bg-blue-500 text-white p-4 rounded-lg shadow-lg hover:bg-blue-600 transition-colors">
+<div className='bg-blue-500 text-white p-4 rounded-lg shadow-lg hover:bg-blue-600 transition-colors'>
   TailwindCSS 样式
-</div>;
+</div>
 ```
 
 ### 使用 Sass
@@ -219,9 +217,9 @@ deno task update
 ## 🆘 需要帮助？
 
 - 查看 [常见问题](faq.md)
-- 提交 [Issue](https://github.com/dext7r/athena/issues)
+- 提交 [Issue](https://github.com/dext7r/Yunyuan/issues)
 - 联系维护者：h7ml@h7ml.com
 
 ---
 
-恭喜！您已经成功开始使用 Athena Template 了！🎉
+恭喜！您已经成功开始使用 Yunyuan Template 了！🎉

@@ -6,7 +6,7 @@ export default function StatePage() {
   return (
     <>
       <Head>
-        <title>状态管理演示 - Athena Template</title>
+        <title>状态管理演示 - Yunyuan Template</title>
         <meta
           name="description"
           content="展示React状态管理的基本使用方法，包括Zustand状态管理库的实际应用示例。"
@@ -15,7 +15,7 @@ export default function StatePage() {
           name="keywords"
           content="React状态管理, Zustand, 状态管理库, React状态, 状态持久化"
         />
-        <meta property="og:title" content="状态管理演示 - Athena Template" />
+        <meta property="og:title" content="状态管理演示 - Yunyuan Template" />
         <meta
           property="og:description"
           content="展示React状态管理的基本使用方法，包括Zustand状态管理库的实际应用示例。"
