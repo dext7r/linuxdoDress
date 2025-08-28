@@ -61,6 +61,7 @@
 |       **[TypeScript](https://www.typescriptlang.org/)**       | `Latest`  | 🔷 类型安全的 JavaScript |
 | **[Preact Signals](https://preactjs.com/guide/v10/signals/)** |  `1.2.2`  | 📡 响应式状态管理        |
 |      **[Deno Standard Library](https://deno.land/std)**       | `0.216.0` | 📚 Deno 标准库           |
+|             **[DJWT](https://deno.land/x/djwt)**              |  `3.0.2`  | 🔐 JWT 认证库            |
 
 </div>
 
@@ -97,8 +98,9 @@
 - ✅ TypeScript 类型安全
 - ✅ 热重载开发服务器
 - ✅ 代码格式化和 Lint
-- ✅ 自动化 CI/CD
+- ✅ 自动化 CI/CD 工作流
 - ✅ 完整的文档系统
+- ✅ GitHub OAuth 认证集成
 
 </td>
 </tr>
@@ -116,11 +118,13 @@
 </td>
 <td>
 
-**�️ 工具集成**
+**🏠️ 工具集成**
 
 - ✅ 实用 Hooks 库
 - ✅ 状态管理 (Zustand)
 - ✅ 样式系统 (TailwindCSS + Sass)
+- ✅ JWT 认证系统
+- ✅ GitHub OAuth 集成
 - ✅ 部署支持 (Deno Deploy)
 - ✅ 安全最佳实践
 

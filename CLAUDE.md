@@ -58,6 +58,9 @@ deno task manifest
 - **TailwindCSS 3.4.1**: 原子化 CSS 框架，带有自定义主题扩展
 - **Sass 1.69.5**: CSS 预处理器，用于复杂样式逻辑
 - **Zustand 4.4.7**: 轻量级状态管理
+- **Preact Signals 1.2.2**: 响应式状态管理
+- **DJWT 3.0.2**: JWT 认证库
+- **Deno Standard Library 0.216.0**: Deno 标准库
 
 ### 核心目录
 
