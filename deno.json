@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dext7r/Yunyuan.git"
+    "url": "https://github.com/h7ml/Yunyuan.git"
   },
   "bugs": {
-    "url": "https://github.com/dext7r/Yunyuan/issues"
+    "url": "https://github.com/h7ml/Yunyuan/issues"
   },
-  "issues": "https://github.com/dext7r/Yunyuan/issues",
+  "issues": "https://github.com/h7ml/Yunyuan/issues",
   "homepage": "https://Yunyuan.deno.dev",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",

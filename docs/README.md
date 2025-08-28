@@ -52,9 +52,9 @@
 
 ## 🚀 快速链接
 
-- [GitHub 仓库](https://github.com/dext7r/Yunyuan)
+- [GitHub 仓库](https://github.com/h7ml/Yunyuan)
 - [在线演示](https://Yunyuan.deno.dev)
-- [问题反馈](https://github.com/dext7r/Yunyuan/issues)
+- [问题反馈](https://github.com/h7ml/Yunyuan/issues)
 - [贡献指南](../CONTRIBUTING.md)
 
 ## 📖 如何使用文档
@@ -69,7 +69,7 @@
 
 如果您发现文档有错误或需要改进，欢迎：
 
-1. 提交 [Issue](https://github.com/dext7r/Yunyuan/issues)
+1. 提交 [Issue](https://github.com/h7ml/Yunyuan/issues)
 2. 提交 Pull Request
 3. 联系维护者：h7ml@h7ml.com
 

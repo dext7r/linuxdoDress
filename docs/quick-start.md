@@ -26,11 +26,11 @@ deno --version
 
 ```bash
 # 克隆项目
-git clone https://github.com/dext7r/Yunyuan.git
+git clone https://github.com/h7ml/Yunyuan.git
 cd Yunyuan
 
 # 或者使用 GitHub CLI
-gh repo clone dext7r/Yunyuan
+gh repo clone h7ml/Yunyuan
 cd Yunyuan
 ```
 
@@ -217,7 +217,7 @@ deno task update
 ## 🆘 需要帮助？
 
 - 查看 [常见问题](faq.md)
-- 提交 [Issue](https://github.com/dext7r/Yunyuan/issues)
+- 提交 [Issue](https://github.com/h7ml/Yunyuan/issues)
 - 联系维护者：h7ml@h7ml.com
 
 ---

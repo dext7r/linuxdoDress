@@ -257,7 +257,7 @@ export default function AboutPage() {
                 <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg font-mono text-sm">
                   <div className="space-y-2">
                     <div># 克隆项目</div>
-                    <div>git clone https://github.com/dext7r/Yunyuan.git</div>
+                    <div>git clone https://github.com/h7ml/Yunyuan.git</div>
                     <div></div>
                     <div># 进入项目目录</div>
                     <div>cd Yunyuan</div>
@@ -269,7 +269,7 @@ export default function AboutPage() {
 
                 <div className="flex justify-center gap-4">
                   <a
-                    href="https://github.com/dext7r/Yunyuan.git"
+                    href="https://github.com/h7ml/Yunyuan.git"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

@@ -96,7 +96,7 @@ export default function Home() {
                   </button>
                 </a>
                 <a
-                  href="https://github.com/dext7r/Yunyuan.git"
+                  href="https://github.com/h7ml/Yunyuan.git"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group"

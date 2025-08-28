@@ -22,7 +22,7 @@
 1. **推荐方式**: 使用 GitHub 的私密安全报告功能
 
    - 访问
-     [Security Advisories](https://github.com/dext7r/Yunyuan/security/advisories/new)
+     [Security Advisories](https://github.com/h7ml/Yunyuan/security/advisories/new)
    - 点击 "Report a vulnerability"
    - 填写详细信息
 

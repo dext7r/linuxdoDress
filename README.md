@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/deno-2.0+-black.svg" alt="Deno">
   <img src="https://img.shields.io/badge/fresh-1.7.3-yellow.svg" alt="Fresh">
-  <img src="https://github.com/dext7r/Yunyuan/actions/workflows/deploy.yml/badge.svg" alt="Deploy">
+  <img src="https://github.com/h7ml/Yunyuan/actions/workflows/deploy.yml/badge.svg" alt="Deploy">
 </p>
 
 <p align="center">
@@ -17,9 +17,9 @@
 
 <p align="center">
   <a href="https://Yunyuan.deno.dev">🌐 在线演示</a> •
-  <a href="https://github.com/dext7r/Yunyuan">📦 GitHub</a> •
+  <a href="https://github.com/h7ml/Yunyuan">📦 GitHub</a> •
   <a href="https://Yunyuan.deno.dev/docs">📚 文档</a> •
-  <a href="https://github.com/dext7r/Yunyuan/issues">🐛 问题反馈</a>
+  <a href="https://github.com/h7ml/Yunyuan/issues">🐛 问题反馈</a>
 </p>
 
 </div>
@@ -35,7 +35,7 @@
 </tr>
 <tr>
 <td><strong>🔗 仓库</strong></td>
-<td><a href="https://github.com/dext7r/Yunyuan">github.com/dext7r/Yunyuan</a></td>
+<td><a href="https://github.com/h7ml/Yunyuan">github.com/h7ml/Yunyuan</a></td>
 </tr>
 <tr>
 <td><strong>🌐 主页</strong></td>
@@ -144,7 +144,7 @@
 
 ```bash
 # 📥 克隆项目
-git clone https://github.com/dext7r/Yunyuan.git
+git clone https://github.com/h7ml/Yunyuan.git
 cd Yunyuan
 
 # 🚀 启动开发服务器
@@ -420,9 +420,9 @@ deno task preview
 
 ### 💝 我们欢迎所有形式的贡献
 
-[![Contributors](https://img.shields.io/github/contributors/dext7r/Yunyuan?style=for-the-badge)](https://github.com/dext7r/Yunyuan/graphs/contributors)
-[![Issues](https://img.shields.io/github/issues/dext7r/Yunyuan?style=for-the-badge)](https://github.com/dext7r/Yunyuan/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/dext7r/Yunyuan?style=for-the-badge)](https://github.com/dext7r/Yunyuan/pulls)
+[![Contributors](https://img.shields.io/github/contributors/h7ml/Yunyuan?style=for-the-badge)](https://github.com/h7ml/Yunyuan/graphs/contributors)
+[![Issues](https://img.shields.io/github/issues/h7ml/Yunyuan?style=for-the-badge)](https://github.com/h7ml/Yunyuan/issues)
+[![Pull Requests](https://img.shields.io/github/issues-pr/h7ml/Yunyuan?style=for-the-badge)](https://github.com/h7ml/Yunyuan/pulls)
 
 </div>
 
@@ -498,7 +498,7 @@ git push origin feature/AmazingFeature
 
 ### 🌟 如果这个项目对您有帮助，请给我们一个 Star
 
-[![GitHub stars](https://img.shields.io/github/stars/dext7r/Yunyuan?style=social)](https://github.com/dext7r/Yunyuan/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/h7ml/Yunyuan?style=social)](https://github.com/h7ml/Yunyuan/stargazers)
 
 **感谢您的支持！** 🙏
 
