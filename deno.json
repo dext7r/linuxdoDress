@@ -72,7 +72,7 @@
   },
   "nodeModulesDir": "auto",
   "deploy": {
-    "project": "f95080ed-9b8c-4d2f-ac7a-07bf7571416a",
+    "project": "732f18a2-4aee-4e4b-beda-d81cd81eb869",
     "exclude": [
       "**/node_modules"
     ],

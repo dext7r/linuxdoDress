@@ -1,0 +1,123 @@
+name: 清理失败工作流
+
+# 每周一 UTC 时间 02:00 (北京时间周一上午 10:00) 运行
+on:
+  schedule:
+    - cron: '0 2 * * 1'
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  cleanup:
+    name: 清理失败的工作流运行
+    runs-on: ubuntu-latest
+    
+    permissions:
+      actions: write # 需要删除工作流运行的权限
+      contents: read
+      
+    steps:
+      - name: 检查仓库
+        uses: actions/checkout@v4
+        
+      - name: 清理失败的工作流运行
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            
+            console.log(`开始清理 ${owner}/${repo} 的失败工作流运行...`);
+            
+            // 获取所有工作流
+            const workflows = await github.rest.actions.listRepoWorkflows({
+              owner,
+              repo
+            });
+            
+            let totalDeleted = 0;
+            
+            for (const workflow of workflows.data.workflows) {
+              console.log(`检查工作流: ${workflow.name} (ID: ${workflow.id})`);
+              
+              // 获取失败的工作流运行 (保留最近30天内的)
+              const thirtyDaysAgo = new Date();
+              thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+              
+              const runs = await github.rest.actions.listWorkflowRuns({
+                owner,
+                repo,
+                workflow_id: workflow.id,
+                status: 'failure',
+                per_page: 100,
+                created: `<${thirtyDaysAgo.toISOString()}`
+              });
+              
+              console.log(`找到 ${runs.data.workflow_runs.length} 个30天前的失败运行`);
+              
+              for (const run of runs.data.workflow_runs) {
+                try {
+                  await github.rest.actions.deleteWorkflowRun({
+                    owner,
+                    repo,
+                    run_id: run.id
+                  });
+                  console.log(`删除失败运行: ${run.id} (${run.created_at})`);
+                  totalDeleted++;
+                  
+                  // 添加延时避免API限制
+                  await new Promise(resolve => setTimeout(resolve, 100));
+                } catch (error) {
+                  console.error(`删除运行 ${run.id} 失败:`, error.message);
+                }
+              }
+              
+              // 同时清理取消的工作流运行
+              const cancelledRuns = await github.rest.actions.listWorkflowRuns({
+                owner,
+                repo,
+                workflow_id: workflow.id,
+                status: 'cancelled',
+                per_page: 100,
+                created: `<${thirtyDaysAgo.toISOString()}`
+              });
+              
+              console.log(`找到 ${cancelledRuns.data.workflow_runs.length} 个30天前的取消运行`);
+              
+              for (const run of cancelledRuns.data.workflow_runs) {
+                try {
+                  await github.rest.actions.deleteWorkflowRun({
+                    owner,
+                    repo,
+                    run_id: run.id
+                  });
+                  console.log(`删除取消运行: ${run.id} (${run.created_at})`);
+                  totalDeleted++;
+                  
+                  await new Promise(resolve => setTimeout(resolve, 100));
+                } catch (error) {
+                  console.error(`删除运行 ${run.id} 失败:`, error.message);
+                }
+              }
+            }
+            
+            console.log(`清理完成! 总共删除了 ${totalDeleted} 个工作流运行`);
+            
+            // 设置输出供后续步骤使用
+            core.setOutput('deleted_count', totalDeleted);
+            
+      - name: 清理工作流运行记录摘要
+        if: always()
+        run: |
+          echo "## 🧹 工作流清理报告" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- 清理时间: $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "- 清理规则: 删除30天前的失败和取消的工作流运行" >> $GITHUB_STEP_SUMMARY
+          echo "- 删除数量: ${{ steps.cleanup.outputs.deleted_count || '0' }} 个运行记录" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ 清理任务已完成"  >> $GITHUB_STEP_SUMMARY
+          
+      - name: 发送通知 (可选)
+        if: steps.cleanup.outputs.deleted_count > 0
+        run: |
+          echo "本次清理删除了 ${{ steps.cleanup.outputs.deleted_count }} 个失败的工作流运行"
