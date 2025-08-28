@@ -2,7 +2,6 @@ import { useEffect, useState } from "preact/hooks";
 import { JSX } from "preact";
 import Header from "../components/layout/Header.tsx";
 import Sidebar from "../components/layout/Sidebar.tsx";
-import Footer from "../components/layout/Footer.tsx";
 
 interface LayoutManagerProps {
   children: JSX.Element | JSX.Element[] | string;
@@ -118,9 +117,6 @@ const LayoutManager = (
           </div>
         </main>
       </div>
-
-      {/* 固定底部 */}
-      <Footer className="flex-shrink-0" />
     </div>
   );
 };

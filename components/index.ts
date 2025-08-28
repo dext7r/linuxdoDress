@@ -7,5 +7,4 @@ export { default as Modal } from "./ui/Modal.tsx";
 // 导出布局组件
 export { default as Layout } from "./layout/Layout.tsx";
 export { default as Header } from "./layout/Header.tsx";
-export { default as Footer } from "./layout/Footer.tsx";
 export { default as Sidebar } from "./layout/Sidebar.tsx";
