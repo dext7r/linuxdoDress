@@ -38,6 +38,7 @@ jobs:
           MICROSOFT_CLIENT_SECRET: ${{ secrets.MICROSOFT_CLIENT_SECRET }}
           GITEE_CLIENT_ID: ${{ secrets.GITEE_CLIENT_ID }}
           GITEE_CLIENT_SECRET: ${{ secrets.GITEE_CLIENT_SECRET }}
+          
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
