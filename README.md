@@ -3,7 +3,7 @@
 # 🏛️ Yunyuan Template
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.0.1-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/deno-2.0+-black.svg" alt="Deno">
   <img src="https://img.shields.io/badge/fresh-1.7.3-yellow.svg" alt="Fresh">
