@@ -4,36 +4,35 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $about from "./routes/about.tsx";
 import * as $admin from "./routes/admin.tsx";
+import * as $api_admin_posts_approve from "./routes/api/admin/posts/approve.ts";
+import * as $api_admin_posts_pending from "./routes/api/admin/posts/pending.ts";
 import * as $api_auth_callback from "./routes/api/auth/callback.ts";
 import * as $api_auth_github from "./routes/api/auth/github.ts";
+import * as $api_auth_linuxdo from "./routes/api/auth/linuxdo.ts";
 import * as $api_auth_logout from "./routes/api/auth/logout.ts";
 import * as $api_auth_me from "./routes/api/auth/me.ts";
 import * as $api_joke from "./routes/api/joke.ts";
-import * as $components from "./routes/components.tsx";
-import * as $greet_name_ from "./routes/greet/[name].tsx";
-import * as $hooks from "./routes/hooks.tsx";
+import * as $api_posts_collect from "./routes/api/posts/collect.ts";
+import * as $api_posts_index from "./routes/api/posts/index.ts";
+import * as $dress from "./routes/dress.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $profile from "./routes/profile.tsx";
-import * as $state from "./routes/state.tsx";
 import * as $status_401 from "./routes/status/401.tsx";
 import * as $status_403 from "./routes/status/403.tsx";
 import * as $status_500 from "./routes/status/500.tsx";
 import * as $status_502 from "./routes/status/502.tsx";
 import * as $status_503 from "./routes/status/503.tsx";
 import * as $status_index from "./routes/status/index.tsx";
+import * as $AdminPanel from "./islands/AdminPanel.tsx";
 import * as $AuthMenu from "./islands/AuthMenu.tsx";
-import * as $ComponentsDemo from "./islands/ComponentsDemo.tsx";
 import * as $Counter from "./islands/Counter.tsx";
-import * as $CounterDemo from "./islands/CounterDemo.tsx";
 import * as $HeaderNavigation from "./islands/HeaderNavigation.tsx";
-import * as $HooksDemo from "./islands/HooksDemo.tsx";
 import * as $LayoutManager from "./islands/LayoutManager.tsx";
 import * as $NavigationState from "./islands/NavigationState.tsx";
+import * as $PostForm from "./islands/PostForm.tsx";
+import * as $PostGrid from "./islands/PostGrid.tsx";
 import * as $SidebarNavigation from "./islands/SidebarNavigation.tsx";
-import * as $SimpleStateDemo from "./islands/SimpleStateDemo.tsx";
-import * as $StateDemo from "./islands/StateDemo.tsx";
 import * as $StatusDropdown from "./islands/StatusDropdown.tsx";
 import * as $ThemeToggle from "./islands/ThemeToggle.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -42,19 +41,20 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/about.tsx": $about,
     "./routes/admin.tsx": $admin,
+    "./routes/api/admin/posts/approve.ts": $api_admin_posts_approve,
+    "./routes/api/admin/posts/pending.ts": $api_admin_posts_pending,
     "./routes/api/auth/callback.ts": $api_auth_callback,
     "./routes/api/auth/github.ts": $api_auth_github,
+    "./routes/api/auth/linuxdo.ts": $api_auth_linuxdo,
     "./routes/api/auth/logout.ts": $api_auth_logout,
     "./routes/api/auth/me.ts": $api_auth_me,
     "./routes/api/joke.ts": $api_joke,
-    "./routes/components.tsx": $components,
-    "./routes/greet/[name].tsx": $greet_name_,
-    "./routes/hooks.tsx": $hooks,
+    "./routes/api/posts/collect.ts": $api_posts_collect,
+    "./routes/api/posts/index.ts": $api_posts_index,
+    "./routes/dress.tsx": $dress,
     "./routes/index.tsx": $index,
     "./routes/profile.tsx": $profile,
-    "./routes/state.tsx": $state,
     "./routes/status/401.tsx": $status_401,
     "./routes/status/403.tsx": $status_403,
     "./routes/status/500.tsx": $status_500,
@@ -63,17 +63,15 @@ const manifest = {
     "./routes/status/index.tsx": $status_index,
   },
   islands: {
+    "./islands/AdminPanel.tsx": $AdminPanel,
     "./islands/AuthMenu.tsx": $AuthMenu,
-    "./islands/ComponentsDemo.tsx": $ComponentsDemo,
     "./islands/Counter.tsx": $Counter,
-    "./islands/CounterDemo.tsx": $CounterDemo,
     "./islands/HeaderNavigation.tsx": $HeaderNavigation,
-    "./islands/HooksDemo.tsx": $HooksDemo,
     "./islands/LayoutManager.tsx": $LayoutManager,
     "./islands/NavigationState.tsx": $NavigationState,
+    "./islands/PostForm.tsx": $PostForm,
+    "./islands/PostGrid.tsx": $PostGrid,
     "./islands/SidebarNavigation.tsx": $SidebarNavigation,
-    "./islands/SimpleStateDemo.tsx": $SimpleStateDemo,
-    "./islands/StateDemo.tsx": $StateDemo,
     "./islands/StatusDropdown.tsx": $StatusDropdown,
     "./islands/ThemeToggle.tsx": $ThemeToggle,
   },

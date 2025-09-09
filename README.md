@@ -1,51 +1,22 @@
 <div align="center">
 
-# 🏛️ Yunyuan Template
+# 💄 Linux.do 女装展示系统
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/deno-2.0+-black.svg" alt="Deno">
   <img src="https://img.shields.io/badge/fresh-1.7.3-yellow.svg" alt="Fresh">
-  <img src="https://github.com/h7ml/Yunyuan/actions/workflows/deploy.yml/badge.svg" alt="Deploy">
 </p>
 
 <p align="center">
-  <strong>一个现代化的 React + Deno 全栈开发模板</strong><br>
-  集成了 TailwindCSS + Sass + Zustand，为您提供完整的项目基础架构
-</p>
-
-<p align="center">
-  <a href="https://Yunyuan.deno.dev">🌐 在线演示</a> •
-  <a href="https://github.com/h7ml/Yunyuan">📦 GitHub</a> •
-  <a href="https://Yunyuan.deno.dev/docs">📚 文档</a> •
-  <a href="https://github.com/h7ml/Yunyuan/issues">🐛 问题反馈</a>
+  <strong>基于 Linux.do 社区的女装展示系统</strong><br>
+  聚合展示社区女装相关帖子，分享美妆技巧、穿搭心得、美丽瞬间
 </p>
 
 </div>
 
 ---
-
-## 👨‍💻 项目信息
-
-<table>
-<tr>
-<td><strong>👤 作者</strong></td>
-<td>h7ml &lt;<a href="mailto:h7ml@h7ml.com">h7ml@h7ml.com</a>&gt;</td>
-</tr>
-<tr>
-<td><strong>🔗 仓库</strong></td>
-<td><a href="https://github.com/h7ml/Yunyuan">github.com/h7ml/Yunyuan</a></td>
-</tr>
-<tr>
-<td><strong>🌐 主页</strong></td>
-<td><a href="https://Yunyuan.deno.dev">Yunyuan.deno.dev</a></td>
-</tr>
-<tr>
-<td><strong>📖 文档</strong></td>
-<td><a href="https://Yunyuan.deno.dev/docs">Yunyuan.deno.dev/docs</a></td>
-</tr>
-</table>
 
 ## 🚀 技术栈
 
@@ -60,73 +31,64 @@
 |         **[Zustand](https://zustand-demo.pmnd.rs/)**          |  `4.4.7`  | 🐻 轻量级状态管理        |
 |       **[TypeScript](https://www.typescriptlang.org/)**       | `Latest`  | 🔷 类型安全的 JavaScript |
 | **[Preact Signals](https://preactjs.com/guide/v10/signals/)** |  `1.2.2`  | 📡 响应式状态管理        |
-|      **[Deno Standard Library](https://deno.land/std)**       | `0.216.0` | 📚 Deno 标准库           |
 |             **[DJWT](https://deno.land/x/djwt)**              |  `3.0.2`  | 🔐 JWT 认证库            |
 
 </div>
 
-## ✨ 特性亮点
+## ✨ 功能特性
 
 <div align="center">
 
-|                    🎨 UI 组件                     |                          🔧 开发工具                           |               🌙 用户体验                |           ⚡ 性能优化            |
-| :-----------------------------------------------: | :------------------------------------------------------------: | :--------------------------------------: | :------------------------------: |
-| **丰富的组件库**<br>Button、Card、Input、Modal 等 | **实用 Hooks 库**<br>useLocalStorage、useDebounce、useFetch 等 | **主题切换系统**<br>亮色、暗色、系统主题 | **Islands 架构**<br>最佳性能表现 |
-|        **响应式设计**<br>完美适配多端设备         |              **类型安全**<br>全面 TypeScript 支持              |    **状态持久化**<br>自动保存用户偏好    |  **SSR 兼容**<br>服务端渲染支持  |
+### 🎯 专为 Linux.do 社区女装展示打造
 
 </div>
-
-### 🎯 核心特性
 
 <table>
 <tr>
 <td width="50%">
 
-**🎨 UI & 设计**
+**💄 内容展示**
 
-- ✅ 丰富的 UI 组件库
-- ✅ 响应式设计系统
-- ✅ 主题切换支持
-- ✅ 玻璃态效果
-- ✅ 动画过渡效果
+- ✅ 女装帖子聚合展示
+- ✅ 美妆技巧分享
+- ✅ 穿搭心得交流
+- ✅ 图片轮播展示
+- ✅ 响应式布局设计
 
 </td>
 <td width="50%">
 
-**🔧 开发体验**
+**🔧 技术特性**
 
-- ✅ TypeScript 类型安全
-- ✅ 热重载开发服务器
-- ✅ 代码格式化和 Lint
-- ✅ 自动化 CI/CD 工作流
-- ✅ 完整的文档系统
-- ✅ GitHub OAuth 认证集成
+- ✅ Linux.do OAuth 认证
+- ✅ 帖子数据采集
+- ✅ 主题切换支持
+- ✅ Islands 架构
+- ✅ 服务端渲染 (SSR)
 
 </td>
 </tr>
 <tr>
 <td>
 
-**⚡ 性能优化**
+**🎨 用户体验**
 
-- ✅ Islands 架构
-- ✅ 服务端渲染 (SSR)
-- ✅ 按需加载
-- ✅ 代码分割
-- ✅ 缓存优化
+- ✅ 现代化 UI 设计
+- ✅ 深色/浅色主题
+- ✅ 动画过渡效果
+- ✅ 移动端适配
+- ✅ 快速加载
 
 </td>
 <td>
 
-**🏠️ 工具集成**
+**🛠️ 开发特性**
 
-- ✅ 实用 Hooks 库
-- ✅ 状态管理 (Zustand)
-- ✅ 样式系统 (TailwindCSS + Sass)
-- ✅ JWT 认证系统
-- ✅ GitHub OAuth 集成
-- ✅ 部署支持 (Deno Deploy)
-- ✅ 安全最佳实践
+- ✅ TypeScript 类型安全
+- ✅ 热重载开发服务器
+- ✅ 代码格式化和 Lint
+- ✅ 数据库集成
+- ✅ API 路由系统
 
 </td>
 </tr>
@@ -144,12 +106,16 @@
 
 确保您的系统已安装 [Deno](https://deno.land/) 2.0 或更高版本。
 
-### ⚡ 一键启动
+### ⚡ 启动步骤
 
 ```bash
 # 📥 克隆项目
-git clone https://github.com/h7ml/Yunyuan.git
-cd Yunyuan
+git clone https://github.com/h7ml/linuxdoDress.git
+cd linuxdoDress
+
+# 📝 配置环境变量
+cp .env.example .env
+# 编辑 .env 文件，填入必要的配置信息
 
 # 🚀 启动开发服务器
 deno task start
@@ -172,318 +138,81 @@ deno task start
 | `deno task preview`  | 👀 预览生产版本   | 本地预览生产构建       |
 |  `deno task check`   | ✅ 代码质量检查   | 格式化、Lint、类型检查 |
 | `deno task manifest` | 📋 生成清单文件   | Fresh 框架清单         |
-|  `deno task update`  | 🔄 更新框架       | 更新到最新版本         |
 
 </div>
 
-## 📖 使用指南
+## ⚙️ 环境配置
 
-<div align="center">
+### 必需的环境变量
 
-### 🎯 三步上手，轻松开发
+创建 `.env` 文件并配置以下环境变量：
 
-</div>
+```bash
+# Linux.do OAuth 配置
+LINUXDO_CLIENT_ID=your_linuxdo_client_id
+LINUXDO_CLIENT_SECRET=your_linuxdo_client_secret
 
-<table>
-<tr>
-<td width="33%">
+# 应用配置
+APP_BASE_URL=http://localhost:8000
+JWT_SECRET=your_super_secret_jwt_key_here
+SESSION_EXPIRE_TIME=86400
 
-#### 🎨 **1. 使用组件**
-
-```tsx
-import Button from '../components/ui/Button.tsx'
-import Card from '../components/ui/Card.tsx'
-
-function MyComponent() {
-  return (
-    <Card>
-      <Button variant='primary' size='lg'>
-        点击我
-      </Button>
-    </Card>
-  )
-}
+# 数据库配置
+DATABASE_PATH=./data/posts.db
 ```
 
-</td>
-<td width="33%">
+### Linux.do OAuth 应用申请
 
-#### 🔧 **2. 自定义 Hooks**
+1. **查看官方文档**：https://wiki.linux.do/Community/LinuxDoConnect
+2. **申请 OAuth 应用**：https://connect.linux.do/dash/sso/new
+3. **配置应用信息**：
+   - 应用名称：Linux.do 女装展示
+   - 回调 URL：`http://localhost:8000/api/auth/callback`
+   - 权限范围：`user`
+4. **获取凭据**：记录 Client ID 和 Client Secret
+5. **更新配置**：将凭据填入 `.env` 文件
 
-```tsx
-import { useDebounce, useLocalStorage } from '../hooks/index.ts'
+### 调试工具
 
-function MyComponent() {
-  const [value, setValue] = useLocalStorage('key', 'default')
-  const debouncedValue = useDebounce(value, 500)
-
-  return <div>{debouncedValue}</div>
-}
-```
-
-</td>
-<td width="33%">
-
-#### 💾 **3. 状态管理**
-
-```tsx
-import { useAppStore } from '../stores/useAppStore.ts'
-
-function MyComponent() {
-  const { isLoading, setLoading } = useAppStore()
-
-  return (
-    <button onClick={() => setLoading(!isLoading)}>
-      {isLoading ? '加载中...' : '开始加载'}
-    </button>
-  )
-}
-```
-
-</td>
-</tr>
-</table>
-
-## 🎨 样式系统
-
-<div align="center">
-
-### 💅 双重样式方案，灵活高效
-
-</div>
-
-<table>
-<tr>
-<td width="50%" align="center">
-
-### 🌊 TailwindCSS
-
-**原子化 CSS 框架**
-
-✅ 快速原型开发
-✅ 原子化样式类
-✅ 响应式设计
-✅ 暗色主题支持
-
-```html
-<div class="bg-blue-500 text-white p-4 rounded-lg">快速样式</div>
-```
-
-</td>
-<td width="50%" align="center">
-
-### 🎯 Sass
-
-**CSS 预处理器**
-
-✅ 复杂样式逻辑
-✅ 主题变量管理
-✅ 组件特定样式
-✅ 嵌套和混入
-
-```scss
-.custom-component {
-  @include theme-colors;
-  &:hover {
-    transform: scale(1.05);
-  }
-}
-```
-
-</td>
-</tr>
-</table>
+访问 http://localhost:8000/debug-oauth 查看配置状态和问题排查。
 
 ## 📁 项目结构
 
-<div align="center">
-
-### 🏗️ 清晰的架构设计
-
-</div>
-
-<table>
-<tr>
-<td width="50%">
-
 ```text
-📦 Yunyuan/
+📦 linuxdoDress/
 ├── 🎨 components/          # 可复用组件
 │   ├── 🧩 ui/             # 基础 UI 组件
 │   ├── 📐 layout/         # 布局组件
-│   └── 📝 forms/          # 表单组件
-├── 🏝️ islands/            # Fresh Islands
+│   └── 🔐 auth/           # 认证组件
+├── 🏝️ islands/            # Fresh Islands (客户端组件)
 ├── 🛣️ routes/             # 路由页面
 │   ├── 🔌 api/           # API 路由
+│   │   ├── 🔐 auth/      # 认证相关 API
+│   │   └── 📝 posts/     # 帖子相关 API
 │   └── 📊 status/        # 状态页面
 ├── 🪝 hooks/              # 自定义 Hooks
-├── 💾 stores/             # 状态管理
-└── 🎯 static/             # 静态资源
-```
-
-</td>
-<td width="50%">
-
-```text
-📦 配置文件/
-├── ⚙️ deno.json          # Deno 配置
-├── 🌊 fresh.config.ts    # Fresh 配置
-├── 🎨 tailwind.config.ts # TailwindCSS 配置
-├── 💅 styles/             # Sass 样式
-├── 🔷 types/              # TypeScript 类型
+├── 💾 stores/             # 状态管理 (Zustand)
 ├── 🛠️ utils/              # 工具函数
-├── 📚 docs/               # 项目文档
-├── 🔒 .github/            # GitHub 配置
-└── 📄 README.md           # 项目说明
+├── 🎯 static/             # 静态资源
+├── 💅 styles/             # Sass 样式
+└── 🔷 types/              # TypeScript 类型定义
 ```
 
-</td>
-</tr>
-</table>
+## 🤝 致谢
 
-<div align="center">
+本项目基于 [Yunyuan Template](https://github.com/h7ml/Yunyuan) 开发，感谢原作者提供的优秀模板基础。
 
-**🎯 每个目录都有明确的职责，便于维护和扩展**
+## 🐛 错误修复指南
 
-</div>
+### 常见错误及解决方案
 
-## 🔧 开发工具配置
+1. **getPosts is not defined**
+   - 原因：缺少函数导入
+   - 解决：已修复 API 路由中的导入问题
 
-<div align="center">
-
-### ⚙️ 开箱即用的开发环境
-
-</div>
-
-<table>
-<tr>
-<td width="33%" align="center">
-
-#### 🔷 TypeScript
-
-✅ JSX 运行时：`react-jsx`
-✅ JSX 导入源：`preact`
-✅ 自动生成 node_modules
-✅ 严格类型检查
-
-</td>
-<td width="33%" align="center">
-
-#### 📏 代码规范
-
-✅ Fresh 推荐规则
-✅ 自动排除构建目录
-✅ 代码格式化
-✅ 质量检查
-
-</td>
-<td width="33%" align="center">
-
-#### 🚀 部署支持
-
-✅ Deno Deploy 集成
-✅ 入口文件：`main.ts`
-✅ 自动排除依赖
-✅ CI/CD 工作流
-
-</td>
-</tr>
-</table>
-
-## 🌐 部署
-
-<div align="center">
-
-### 🚀 一键部署到云端
-
-[![Deploy to Deno Deploy](https://img.shields.io/badge/Deploy%20to-Deno%20Deploy-00ADD8?style=for-the-badge&logo=deno&logoColor=white)](https://deno.com/deploy)
-
-</div>
-
-项目已完美集成 [Deno Deploy](https://deno.com/deploy)，支持一键部署：
-
-```bash
-# 🔨 构建项目
-deno task build
-
-# 👀 本地预览
-deno task preview
-```
-
-<div align="center">
-
-**🎯 支持自动化 CI/CD，代码推送即可自动部署**
-
-</div>
-
----
-
-## 🤝 参与贡献
-
-<div align="center">
-
-### 💝 我们欢迎所有形式的贡献
-
-[![Contributors](https://img.shields.io/github/contributors/h7ml/Yunyuan?style=for-the-badge)](https://github.com/h7ml/Yunyuan/graphs/contributors)
-[![Issues](https://img.shields.io/github/issues/h7ml/Yunyuan?style=for-the-badge)](https://github.com/h7ml/Yunyuan/issues)
-[![Pull Requests](https://img.shields.io/github/issues-pr/h7ml/Yunyuan?style=for-the-badge)](https://github.com/h7ml/Yunyuan/pulls)
-
-</div>
-
-### 🛠️ 贡献流程
-
-<table>
-<tr>
-<td align="center" width="20%">
-
-**1️⃣ Fork**
-🍴 Fork 本仓库
-
-</td>
-<td align="center" width="20%">
-
-**2️⃣ 分支**
-🌿 创建特性分支
-
-</td>
-<td align="center" width="20%">
-
-**3️⃣ 开发**
-💻 编写代码
-
-</td>
-<td align="center" width="20%">
-
-**4️⃣ 提交**
-📝 提交更改
-
-</td>
-<td align="center" width="20%">
-
-**5️⃣ PR**
-🔄 创建 Pull Request
-
-</td>
-</tr>
-</table>
-
-```bash
-# 🍴 Fork 并克隆
-git clone https://github.com/YOUR_USERNAME/Yunyuan.git
-
-# 🌿 创建分支
-git checkout -b feature/AmazingFeature
-
-# 💻 开发完成后提交
-git commit -m 'Add some AmazingFeature'
-
-# 📤 推送分支
-git push origin feature/AmazingFeature
-
-# 🔄 在 GitHub 上创建 Pull Request
-```
-
----
+2. **LINUXDO_CLIENT_ID is required**
+   - 原因：缺少 Linux.do OAuth 配置
+   - 解决：配置 `.env` 文件中的相关变量
 
 ## 📄 许可证
 
@@ -492,7 +221,6 @@ git push origin feature/AmazingFeature
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 **本项目采用 MIT 许可证**
-查看 [LICENSE](LICENSE) 文件了解详情
 
 </div>
 
@@ -502,12 +230,11 @@ git push origin feature/AmazingFeature
 
 ### 🌟 如果这个项目对您有帮助，请给我们一个 Star
 
-[![GitHub stars](https://img.shields.io/github/stars/h7ml/Yunyuan?style=social)](https://github.com/h7ml/Yunyuan/stargazers)
-
 **感谢您的支持！** 🙏
 
 ---
 
+**基于 [Yunyuan Template](https://github.com/h7ml/Yunyuan) 开发**  
 **Made with ❤️ by [h7ml](https://github.com/h7ml)**
 
 </div>

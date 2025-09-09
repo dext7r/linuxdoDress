@@ -1,18 +1,22 @@
 {
   "lock": false,
-  "name": "Yunyuan",
-  "version": "0.1.0",
-  "description": "一个现代化的 React + Deno 全栈开发模板， 集成了 TailwindCSS + Sass + Zustand， 为您提供完整的项目基础架构。",
+  "name": "linuxdo-dress-display",
+  "version": "1.0.0",
+  "description": "Linux.do 女装展示系统 - 基于 Fresh (Deno) 的现代化女装内容聚合展示平台，集成认证系统、帖子采集、管理员审核和精美展示界面。",
   "keywords": [
-    "React",
+    "Linux.do",
+    "女装展示",
+    "Fresh",
     "Deno",
+    "Preact",
     "TailwindCSS",
     "Sass",
     "Zustand",
-    "Fresh",
     "TypeScript",
-    "Template",
-    "Component Library"
+    "OAuth",
+    "Content Management",
+    "Post Collection",
+    "Admin Panel"
   ],
   "author": "h7ml <h7ml@h7ml.com>",
   "license": "MIT",
@@ -25,13 +29,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/h7ml/Yunyuan.git"
+    "url": "https://github.com/h7ml/linuxdo-dress-display.git"
   },
   "bugs": {
-    "url": "https://github.com/h7ml/Yunyuan/issues"
+    "url": "https://github.com/h7ml/linuxdo-dress-display/issues"
   },
-  "issues": "https://github.com/h7ml/Yunyuan/issues",
-  "homepage": "https://Yunyuan.deno.dev",
+  "issues": "https://github.com/h7ml/linuxdo-dress-display/issues",
+  "homepage": "https://linuxdo-dress.deno.dev",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
@@ -64,6 +68,7 @@
     "sass": "npm:sass@1.69.5",
     "zustand": "npm:zustand@4.4.7",
     "djwt": "https://deno.land/x/djwt@v3.0.2/mod.ts",
+    "sqlite": "https://deno.land/x/sqlite@v3.9.1/mod.ts",
     "$std/": "https://deno.land/std@0.216.0/"
   },
   "compilerOptions": {
@@ -72,7 +77,7 @@
   },
   "nodeModulesDir": "auto",
   "deploy": {
-    "project": "732f18a2-4aee-4e4b-beda-d81cd81eb869",
+    "project": "8b2bd917-4788-43f7-87d4-fff1cd3f7d46",
     "exclude": [
       "**/node_modules"
     ],

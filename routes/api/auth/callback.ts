@@ -1,14 +1,14 @@
 /**
- * GitHub OAuth 回调路由
+ * Linux.do OAuth 回调路由
  * GET /api/auth/callback
  */
 
 import { HandlerContext } from "$fresh/server.ts";
 import {
   exchangeCodeForToken,
-  fetchGitHubUser,
-  transformGitHubUser,
-} from "../../../utils/auth.ts";
+  fetchLinuxDoUser,
+  transformLinuxDoUser,
+} from "../../../utils/auth_linuxdo.ts";
 import { generateJWT, createAuthCookie } from "../../../utils/jwt.ts";
 
 export const handler = {
@@ -21,7 +21,7 @@ export const handler = {
 
       // 检查是否有错误
       if (error) {
-        console.error("❌ GitHub OAuth error:", error);
+        console.error("❌ Linux.do OAuth error:", error);
         return new Response(null, {
           status: 302,
           headers: {
@@ -60,10 +60,10 @@ export const handler = {
       const accessToken = await exchangeCodeForToken(code);
 
       // 使用访问令牌获取用户信息
-      const githubUser = await fetchGitHubUser(accessToken);
+      const linuxdoUser = await fetchLinuxDoUser(accessToken);
 
       // 转换为应用用户格式
-      const appUser = transformGitHubUser(githubUser);
+      const appUser = transformLinuxDoUser(linuxdoUser);
 
       // 生成 JWT 令牌
       const jwt = await generateJWT(appUser);
@@ -84,7 +84,7 @@ export const handler = {
       response.headers.append("Set-Cookie", "oauth_redirect=; Max-Age=0; Path=/; HttpOnly; SameSite=lax");
       return response;
     } catch (error) {
-      console.error("GitHub OAuth callback error:", error);
+      console.error("Linux.do OAuth callback error:", error);
       
       // 根据错误类型返回不同的错误信息
       let errorMessage = "authentication_failed";

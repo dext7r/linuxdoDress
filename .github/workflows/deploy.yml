@@ -26,22 +26,26 @@ jobs:
       - name: Build step
         run: "deno task build"
         env:
-          GITHUB_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          GITHUB_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          # Linux.do OAuth 配置
+          LINUXDO_CLIENT_ID: ${{ secrets.LINUXDO_CLIENT_ID }}
+          LINUXDO_CLIENT_SECRET: ${{ secrets.LINUXDO_CLIENT_SECRET }}
+          
+          # 应用配置
           APP_BASE_URL: ${{ secrets.APP_BASE_URL }}
-          SESSION_EXPIRE_TIME: ${{ secrets.SESSION_EXPIRE_TIME }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
-          NODE_ENV: ${{ secrets.NODE_ENV }}
-          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
-          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
-          MICROSOFT_CLIENT_ID: ${{ secrets.MICROSOFT_CLIENT_ID }}
-          MICROSOFT_CLIENT_SECRET: ${{ secrets.MICROSOFT_CLIENT_SECRET }}
-          GITEE_CLIENT_ID: ${{ secrets.GITEE_CLIENT_ID }}
-          GITEE_CLIENT_SECRET: ${{ secrets.GITEE_CLIENT_SECRET }}
+          SESSION_EXPIRE_TIME: ${{ secrets.SESSION_EXPIRE_TIME }}
+          NODE_ENV: production
+          
+          # 数据库配置
+          DATABASE_PATH: ${{ secrets.DATABASE_PATH }}
+          
+          # 可选的其他OAuth提供商（如果需要）
+          GITHUB_CLIENT_ID: ${{ secrets.GITHUB_CLIENT_ID }}
+          GITHUB_CLIENT_SECRET: ${{ secrets.GITHUB_CLIENT_SECRET }}
           
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "yunyuan"
+          project: "linuxdoDress"
           entrypoint: "main.ts"
           root: "."

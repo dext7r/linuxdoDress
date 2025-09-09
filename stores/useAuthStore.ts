@@ -5,7 +5,7 @@
 
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { AppUser } from "../utils/auth.ts";
+import type { AppUser } from "../utils/auth_linuxdo.ts";
 
 // 认证状态接口
 export interface AuthState {
@@ -202,10 +202,10 @@ export const authUtils = {
   },
 
   /**
-   * 启动 GitHub 登录流程
+   * 启动 Linux.do 登录流程
    */
-  startGitHubLogin: (redirectTo = "/") => {
-    const loginUrl = `/api/auth/github?redirect=${encodeURIComponent(redirectTo)}`;
+  startLinuxDoLogin: (redirectTo = "/") => {
+    const loginUrl = `/api/auth/linuxdo?redirect=${encodeURIComponent(redirectTo)}`;
     if (typeof globalThis.location !== "undefined") {
       globalThis.location.href = loginUrl;
     }

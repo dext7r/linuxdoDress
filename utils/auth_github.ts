@@ -13,12 +13,6 @@ export const GITHUB_OAUTH_CONFIG = {
   userApiUrl: "https://api.github.com/user",
 };
 
-// JWT 配置
-export const JWT_CONFIG = {
-  secret: Deno.env.get("JWT_SECRET") || "default_secret_key",
-  expiresIn: parseInt(Deno.env.get("SESSION_EXPIRE_TIME") || "86400"), // 24小时
-};
-
 // GitHub 用户信息接口
 export interface GitHubUser {
   id: number;
@@ -36,25 +30,6 @@ export interface GitHubUser {
   following: number;
   created_at: string;
   updated_at: string;
-}
-
-// 应用用户信息接口
-export interface AppUser {
-  id: number;
-  username: string;
-  name: string | null;
-  email: string | null;
-  avatar: string;
-  profileUrl: string;
-  bio: string | null;
-  location: string | null;
-  company: string | null;
-  website: string | null;
-  publicRepos: number;
-  followers: number;
-  following: number;
-  joinedAt: string;
-  lastLoginAt: string;
 }
 
 /**
@@ -123,7 +98,7 @@ export async function fetchGitHubUser(accessToken: string): Promise<GitHubUser> 
 /**
  * 转换 GitHub 用户信息为应用用户信息
  */
-export function transformGitHubUser(githubUser: GitHubUser): AppUser {
+export function transformGitHubUser(githubUser: GitHubUser) {
   return {
     id: githubUser.id,
     username: githubUser.login,
@@ -140,29 +115,5 @@ export function transformGitHubUser(githubUser: GitHubUser): AppUser {
     following: githubUser.following,
     joinedAt: githubUser.created_at,
     lastLoginAt: new Date().toISOString(),
-  };
-}
-
-/**
- * 验证 OAuth 配置是否完整
- */
-export function validateOAuthConfig(): { valid: boolean; errors: string[] } {
-  const errors: string[] = [];
-
-  if (!GITHUB_OAUTH_CONFIG.clientId) {
-    errors.push("GITHUB_CLIENT_ID is required");
-  }
-
-  if (!GITHUB_OAUTH_CONFIG.clientSecret) {
-    errors.push("GITHUB_CLIENT_SECRET is required");
-  }
-
-  if (!JWT_CONFIG.secret || JWT_CONFIG.secret === "default_secret_key") {
-    errors.push("JWT_SECRET should be set to a secure random string");
-  }
-
-  return {
-    valid: errors.length === 0,
-    errors,
   };
 }

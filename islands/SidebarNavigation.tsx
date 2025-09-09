@@ -56,7 +56,7 @@ const iconMap: Record<string, JSX.Element> = {
       />
     </svg>
   ),
-  components: (
+  dress: (
     <svg
       className="w-5 h-5"
       fill="none"
@@ -67,37 +67,7 @@ const iconMap: Record<string, JSX.Element> = {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-      />
-    </svg>
-  ),
-  hooks: (
-    <svg
-      className="w-5 h-5"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-      />
-    </svg>
-  ),
-  state: (
-    <svg
-      className="w-5 h-5"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
+        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
       />
     </svg>
   ),
@@ -113,21 +83,6 @@ const iconMap: Record<string, JSX.Element> = {
         strokeLinejoin="round"
         strokeWidth={2}
         d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-      />
-    </svg>
-  ),
-  info: (
-    <svg
-      className="w-5 h-5"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
       />
     </svg>
   ),
@@ -187,7 +142,7 @@ const iconMap: Record<string, JSX.Element> = {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
-        d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6"
+        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
       />
     </svg>
   ),
@@ -239,124 +194,29 @@ const iconMap: Record<string, JSX.Element> = {
 };
 
 export default function SidebarNavigation() {
-  const [expandedItems, setExpandedItems] = useState<string[]>([]);
-  const { isPathActive, isStatusActive } = useNavigationState();
-
-  // 当访问状态码相关页面时，自动展开状态码菜单
-  useEffect(() => {
-    if (isStatusActive()) {
-      setExpandedItems((prev) =>
-        prev.includes("状态码页面") ? prev : [...prev, "状态码页面"]
-      );
-    }
-  }, [isStatusActive()]);
-
-  const toggleExpanded = (label: string) => {
-    setExpandedItems((prev) =>
-      prev.includes(label)
-        ? prev.filter((item) => item !== label)
-        : [...prev, label]
-    );
-  };
+  const { isPathActive } = useNavigationState();
 
   const menuItems: MenuItem[] = [
     { href: "/", label: "首页", icon: "home" },
-    { href: "/components", label: "组件展示", icon: "components" },
-    { href: "/hooks", label: "Hooks演示", icon: "hooks" },
-    { href: "/state", label: "状态管理", icon: "state" },
-    {
-      label: "状态码页面",
-      icon: "status",
-      children: [
-        { href: "/status", label: "状态码总览", icon: "overview" },
-        { href: "/status/401", label: "401 未授权", icon: "lock" },
-        { href: "/status/403", label: "403 禁止访问", icon: "ban" },
-        { href: "/nonexistent-page", label: "404 页面未找到", icon: "search" },
-        { href: "/status/500", label: "500 服务器错误", icon: "error" },
-        { href: "/status/502", label: "502 网关错误", icon: "gateway" },
-        { href: "/status/503", label: "503 服务不可用", icon: "maintenance" },
-      ],
-    },
-    { href: "/about", label: "关于", icon: "info" },
+    { href: "/dress", label: "女装展示", icon: "dress" },
   ];
 
   return (
     <nav className="space-y-1">
-      {menuItems.map((item) => {
-        const hasChildren = item.children && item.children.length > 0;
-        const isExpanded = expandedItems.includes(item.label);
-        const isActive = item.href ? isPathActive(item.href) : isStatusActive();
-
-        if (hasChildren) {
-          return (
-            <div key={item.label}>
-              <button
-                type="button"
-                onClick={() => toggleExpanded(item.label)}
-                className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors ${
-                  isActive
-                    ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  {iconMap[item.icon]}
-                  <span className="font-medium">{item.label}</span>
-                </div>
-                <svg
-                  className={`w-4 h-4 transition-transform ${
-                    isExpanded ? "rotate-90" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-
-              {isExpanded && (
-                <div className="ml-6 mt-1 space-y-1">
-                  {item.children?.map((child) => (
-                    <a
-                      key={child.href}
-                      href={child.href}
-                      className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-                        child.href && isPathActive(child.href)
-                          ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-                          : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-200"
-                      }`}
-                    >
-                      {iconMap[child.icon]}
-                      <span className="text-sm">{child.label}</span>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        }
-
-        return (
-          <a
-            key={item.label}
-            href={item.href}
-            className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
-              isActive
-                ? "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300"
-                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-            }`}
-          >
-            {iconMap[item.icon]}
-            <span className="font-medium">{item.label}</span>
-          </a>
-        );
-      })}
+      {menuItems.map((item) => (
+        <a
+          key={item.label}
+          href={item.href}
+          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
+            isPathActive(item.href!)
+              ? "bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-300"
+              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+          }`}
+        >
+          {iconMap[item.icon]}
+          <span className="font-medium">{item.label}</span>
+        </a>
+      ))}
     </nav>
   );
 }
