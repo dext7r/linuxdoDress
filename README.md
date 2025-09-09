@@ -3,15 +3,25 @@
 # 💄 Linux.do 女装展示系统
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version">
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/deno-2.0+-black.svg" alt="Deno">
   <img src="https://img.shields.io/badge/fresh-1.7.3-yellow.svg" alt="Fresh">
+  <a href="https://linuxdodress.deno.dev" target="_blank">
+    <img src="https://img.shields.io/badge/demo-online-success.svg" alt="Demo">
+  </a>
 </p>
 
 <p align="center">
   <strong>基于 Linux.do 社区的女装展示系统</strong><br>
   聚合展示社区女装相关帖子，分享美妆技巧、穿搭心得、美丽瞬间
+</p>
+
+<p align="center">
+  🌍 <a href="https://linuxdodress.deno.dev" target="_blank"><strong>在线演示</strong></a> |
+  📚 <a href="#-快速开始"><strong>快速开始</strong></a> |
+  🛠️ <a href="#-项目结构"><strong>项目结构</strong></a> |
+  📄 <a href="#-许可证"><strong>许可证</strong></a>
 </p>
 
 </div>
@@ -167,7 +177,8 @@ DATABASE_PATH=./data/posts.db
 2. **申请 OAuth 应用**：https://connect.linux.do/dash/sso/new
 3. **配置应用信息**：
    - 应用名称：Linux.do 女装展示
-   - 回调 URL：`http://localhost:8000/api/auth/callback`
+   - 回调 URL（开发）：`http://localhost:8000/api/auth/callback`
+   - 回调 URL（生产）：`https://linuxdodress.deno.dev/api/auth/callback`
    - 权限范围：`user`
 4. **获取凭据**：记录 Client ID 和 Client Secret
 5. **更新配置**：将凭据填入 `.env` 文件

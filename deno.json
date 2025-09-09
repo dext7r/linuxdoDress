@@ -35,7 +35,7 @@
     "url": "https://github.com/h7ml/linuxdo-dress-display/issues"
   },
   "issues": "https://github.com/h7ml/linuxdo-dress-display/issues",
-  "homepage": "https://linuxdo-dress.deno.dev",
+  "homepage": "https://linuxdodress.deno.dev",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",

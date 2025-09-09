@@ -8,7 +8,7 @@
 1. 访问 [Linux.do Connect 控制台](https://connect.linux.do/dash/sso/new)
 2. 创建新的 SSO 应用
 3. 获取 `Client ID` 和 `Client Secret`
-4. 设置回调URL：`https://your-project.deno.dev/api/auth/callback`
+4. 设置回调URL：`https://linuxdodress.deno.dev/api/auth/callback`
 
 #### 1.2 Fork 项目
 1. Fork 本项目到你的 GitHub 账户
@@ -29,7 +29,7 @@
 # 必需的环境变量
 LINUXDO_CLIENT_ID=你的_linux_do_client_id
 LINUXDO_CLIENT_SECRET=你的_linux_do_client_secret
-APP_BASE_URL=https://你的项目名.deno.dev
+APP_BASE_URL=https://linuxdodress.deno.dev
 JWT_SECRET=至少32位的安全密钥
 SESSION_EXPIRE_TIME=86400
 
@@ -52,7 +52,7 @@ DATABASE_PATH=./data/linuxdo_dress.db
 ```bash
 LINUXDO_CLIENT_ID=你的_client_id
 LINUXDO_CLIENT_SECRET=你的_client_secret
-APP_BASE_URL=https://你的项目名.deno.dev
+APP_BASE_URL=https://linuxdodress.deno.dev
 JWT_SECRET=你的_jwt_密钥
 SESSION_EXPIRE_TIME=86400
 ```
