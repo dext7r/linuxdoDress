@@ -1,6 +1,6 @@
 {
   "lock": false,
-  "name": "linuxdo-dress-display",
+  "name": "linuxdodress",
   "version": "1.0.0",
   "description": "Linux.do 女装展示系统 - 基于 Fresh (Deno) 的现代化女装内容聚合展示平台，集成认证系统、帖子采集、管理员审核和精美展示界面。",
   "keywords": [
@@ -29,12 +29,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/h7ml/linuxdo-dress-display.git"
+    "url": "https://github.com/h7ml/linuxdodress.git"
   },
   "bugs": {
-    "url": "https://github.com/h7ml/linuxdo-dress-display/issues"
+    "url": "https://github.com/h7ml/linuxdodress/issues"
   },
-  "issues": "https://github.com/h7ml/linuxdo-dress-display/issues",
+  "issues": "https://github.com/h7ml/linuxdodress/issues",
   "homepage": "https://linuxdodress.deno.dev",
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
@@ -77,7 +77,7 @@
   },
   "nodeModulesDir": "auto",
   "deploy": {
-    "project": "8b2bd917-4788-43f7-87d4-fff1cd3f7d46",
+    "project": "34d9c946-e73a-4b93-b806-3cb941d9e247",
     "exclude": [
       "**/node_modules"
     ],
