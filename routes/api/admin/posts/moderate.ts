@@ -6,6 +6,7 @@
 import { HandlerContext } from "$fresh/server.ts";
 import { verifyJWT, userFromJWTPayload } from "../../../../utils/jwt.ts";
 import { updatePost, getPostById, getAuthor } from "../../../../utils/database_kv.ts";
+import { isAdmin } from "../../../../utils/adminConfig.ts";
 
 export const handler = {
   async POST(req: Request, _ctx: HandlerContext): Promise<Response> {
@@ -41,9 +42,9 @@ export const handler = {
       
       // 获取用户信息并检查管理员权限
       const user = userFromJWTPayload(payload);
-      if (!user.isStaff && !user.isAdmin) {
+      if (!isAdmin(user)) {
         return new Response(
-          JSON.stringify({ error: "Insufficient permissions. Admin access required." }),
+          JSON.stringify({ error: "Admin access required" }),
           { status: 403, headers: { "Content-Type": "application/json" } }
         );
       }

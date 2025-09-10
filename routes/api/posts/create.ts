@@ -6,6 +6,7 @@
 import { HandlerContext } from "$fresh/server.ts";
 import { verifyJWT, userFromJWTPayload } from "../../../utils/jwt.ts";
 import { createPost, getAuthorByUsername, createAuthor } from "../../../utils/database_kv.ts";
+import { isAdmin } from "../../../utils/adminConfig.ts";
 
 export const handler = {
   async POST(req: Request, _ctx: HandlerContext): Promise<Response> {
@@ -76,7 +77,7 @@ export const handler = {
           profile_url: `https://linux.do/u/${user.username}`,
           trust_level: user.trustLevel || 0,
           badge_count: user.badgeCount || 0,
-          is_staff: user.isStaff || false,
+          is_staff: isAdmin(user),
         });
       }
       
