@@ -5,8 +5,9 @@
 
 import { DB } from "https://deno.land/x/sqlite@v3.9.1/mod.ts";
 
-// 数据库路径
-const DB_PATH = "./data/linuxdo_dress.db";
+// 数据库路径 - 在 Deno Deploy 中使用内存数据库
+const isDeployEnvironment = Deno.env.get("DENO_DEPLOYMENT_ID") !== undefined;
+const DB_PATH = isDeployEnvironment ? ":memory:" : "./data/linuxdo_dress.db";
 
 let db: DB | null = null;
 
@@ -18,12 +19,14 @@ export function initDB(): DB {
     return db;
   }
 
-  try {
-    // 确保数据目录存在
-    Deno.mkdirSync("./data", { recursive: true });
-  } catch (error) {
-    if (!(error instanceof Deno.errors.AlreadyExists)) {
-      throw error;
+  if (!isDeployEnvironment) {
+    try {
+      // 确保数据目录存在（仅本地环境）
+      Deno.mkdirSync("./data", { recursive: true });
+    } catch (error) {
+      if (!(error instanceof Deno.errors.AlreadyExists)) {
+        throw error;
+      }
     }
   }
 
@@ -33,6 +36,12 @@ export function initDB(): DB {
   db.execute("PRAGMA foreign_keys = ON");
   
   createTables();
+  
+  // 在部署环境中插入默认数据（因为每次都是新的内存数据库）
+  if (isDeployEnvironment) {
+    insertDefaultData();
+  }
+  
   return db;
 }
 
