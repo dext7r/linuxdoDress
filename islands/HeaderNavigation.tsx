@@ -8,8 +8,13 @@ export default function HeaderNavigation() {
       <NavLink href="/" label="首页" active={isPathActive("/")} />
       <NavLink
         href="/dress"
-        label="女装展示"
+        label="内容浏览"
         active={isPathActive("/dress")}
+      />
+      <NavLink
+        href="/create"
+        label="创作内容"
+        active={isPathActive("/create")}
       />
     </nav>
   );

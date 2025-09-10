@@ -14,7 +14,9 @@ import * as $api_auth_logout from "./routes/api/auth/logout.ts";
 import * as $api_auth_me from "./routes/api/auth/me.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $api_posts_collect from "./routes/api/posts/collect.ts";
+import * as $api_posts_create from "./routes/api/posts/create.ts";
 import * as $api_posts_index from "./routes/api/posts/index.ts";
+import * as $create from "./routes/create.tsx";
 import * as $dress from "./routes/dress.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $profile from "./routes/profile.tsx";
@@ -27,6 +29,7 @@ import * as $status_index from "./routes/status/index.tsx";
 import * as $AdminPanel from "./islands/AdminPanel.tsx";
 import * as $AuthMenu from "./islands/AuthMenu.tsx";
 import * as $Counter from "./islands/Counter.tsx";
+import * as $CreateContentForm from "./islands/CreateContentForm.tsx";
 import * as $HeaderNavigation from "./islands/HeaderNavigation.tsx";
 import * as $LayoutManager from "./islands/LayoutManager.tsx";
 import * as $NavigationState from "./islands/NavigationState.tsx";
@@ -51,7 +54,9 @@ const manifest = {
     "./routes/api/auth/me.ts": $api_auth_me,
     "./routes/api/joke.ts": $api_joke,
     "./routes/api/posts/collect.ts": $api_posts_collect,
+    "./routes/api/posts/create.ts": $api_posts_create,
     "./routes/api/posts/index.ts": $api_posts_index,
+    "./routes/create.tsx": $create,
     "./routes/dress.tsx": $dress,
     "./routes/index.tsx": $index,
     "./routes/profile.tsx": $profile,
@@ -66,6 +71,7 @@ const manifest = {
     "./islands/AdminPanel.tsx": $AdminPanel,
     "./islands/AuthMenu.tsx": $AuthMenu,
     "./islands/Counter.tsx": $Counter,
+    "./islands/CreateContentForm.tsx": $CreateContentForm,
     "./islands/HeaderNavigation.tsx": $HeaderNavigation,
     "./islands/LayoutManager.tsx": $LayoutManager,
     "./islands/NavigationState.tsx": $NavigationState,

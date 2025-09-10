@@ -4,7 +4,7 @@
  */
 
 import { create, verify } from "djwt";
-import { JWT_CONFIG, type AppUser } from "./auth.ts";
+import { JWT_CONFIG, type AppUser } from "./auth_linuxdo.ts";
 
 // JWT 载荷接口
 export interface JWTPayload {
@@ -13,6 +13,10 @@ export interface JWTPayload {
   name: string | null;
   email: string | null;
   avatar: string;
+  trust_level: number; // 使用snake_case匹配Linux.do
+  badge_count: number;
+  is_staff: boolean;
+  is_admin: boolean;
   iat: number; // 签发时间
   exp: number; // 过期时间
 }
@@ -29,6 +33,10 @@ export async function generateJWT(user: AppUser): Promise<string> {
     name: user.name,
     email: user.email,
     avatar: user.avatar,
+    trust_level: user.trustLevel, // 从camelCase转换为snake_case
+    badge_count: user.badgeCount,
+    is_staff: user.isStaff,
+    is_admin: user.isAdmin,
     iat: now,
     exp: now + JWT_CONFIG.expiresIn,
   };
@@ -134,5 +142,9 @@ export function userFromJWTPayload(payload: JWTPayload): Partial<AppUser> {
     name: payload.name,
     email: payload.email,
     avatar: payload.avatar,
+    trustLevel: payload.trust_level, // 从snake_case转换为camelCase
+    badgeCount: payload.badge_count,
+    isStaff: payload.is_staff,
+    isAdmin: payload.is_admin,
   };
 }
