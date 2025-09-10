@@ -46,3 +46,4 @@ env:
     - JWT_SECRET
     - SESSION_EXPIRE_TIME
     - DATABASE_PATH
+    - NODE_ENV

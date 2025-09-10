@@ -7,9 +7,14 @@
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
   <img src="https://img.shields.io/badge/deno-2.0+-black.svg" alt="Deno">
   <img src="https://img.shields.io/badge/fresh-1.7.3-yellow.svg" alt="Fresh">
+  <img src="https://img.shields.io/badge/database-Deno%20KV-brightgreen.svg" alt="Database">
   <a href="https://linuxdodress.deno.dev" target="_blank">
     <img src="https://img.shields.io/badge/demo-online-success.svg" alt="Demo">
   </a>
+  <br>
+  <img src="https://img.shields.io/github/stars/dext7r/linuxdodress?style=social" alt="GitHub Stars">
+  <img src="https://img.shields.io/github/forks/dext7r/linuxdodress?style=social" alt="GitHub Forks">
+  <img src="https://img.shields.io/github/watchers/dext7r/linuxdodress?style=social" alt="GitHub Watchers">
 </p>
 
 <p align="center">
@@ -247,5 +252,31 @@ DATABASE_PATH=./data/posts.db
 
 **基于 [Yunyuan Template](https://github.com/h7ml/Yunyuan) 开发**  
 **Made with ❤️ by [h7ml](https://github.com/h7ml)**
+
+---
+
+### 📊 项目统计
+
+<p align="center">
+  <img src="https://img.shields.io/github/languages/top/dext7r/linuxdodress" alt="Top Language">
+  <img src="https://img.shields.io/github/languages/count/dext7r/linuxdodress" alt="Language Count">
+  <img src="https://img.shields.io/github/repo-size/dext7r/linuxdodress" alt="Repo Size">
+  <img src="https://img.shields.io/github/commit-activity/m/dext7r/linuxdodress" alt="Commit Activity">
+  <img src="https://img.shields.io/github/last-commit/dext7r/linuxdodress" alt="Last Commit">
+</p>
+
+### 🔗 相关链接
+
+<p align="center">
+  <a href="https://linux.do" target="_blank">
+    <img src="https://img.shields.io/badge/Linux.do-社区-orange?style=for-the-badge&logo=linux" alt="Linux.do">
+  </a>
+  <a href="https://deno.com/deploy" target="_blank">
+    <img src="https://img.shields.io/badge/Deno-Deploy-black?style=for-the-badge&logo=deno" alt="Deno Deploy">
+  </a>
+  <a href="https://fresh.deno.dev" target="_blank">
+    <img src="https://img.shields.io/badge/Fresh-Framework-yellow?style=for-the-badge&logo=deno" alt="Fresh">
+  </a>
+</p>
 
 </div>
