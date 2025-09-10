@@ -3,7 +3,11 @@
  * 支持本地和 Deno Deploy 环境
  */
 
-// 类型定义
+// 检测环境
+const isDeployEnvironment = Deno.env.get("DENO_DEPLOYMENT_ID") !== undefined;
+const isLocalDev = !isDeployEnvironment;
+
+// 类型定义 (保持不变)
 export interface Author {
   id: number;
   username: string;
@@ -89,11 +93,21 @@ export interface CollectionTask {
 
 // KV 数据库实例
 let kv: Deno.Kv | null = null;
+let mockStorage: Map<string, any> | null = null;
 
 /**
  * 初始化 KV 数据库
  */
-export async function initKV(): Promise<Deno.Kv> {
+export async function initKV(): Promise<Deno.Kv | Map<string, any>> {
+  if (isLocalDev) {
+    console.log("⚠️  本地环境不支持 Deno KV，使用内存模拟存储");
+    if (!mockStorage) {
+      mockStorage = new Map();
+      await insertDefaultDataMock();
+    }
+    return mockStorage;
+  }
+
   if (kv) {
     return kv;
   }
@@ -110,7 +124,14 @@ export async function initKV(): Promise<Deno.Kv> {
 /**
  * 获取 KV 数据库实例
  */
-export async function getKV(): Promise<Deno.Kv> {
+export async function getKV(): Promise<Deno.Kv | Map<string, any>> {
+  if (isLocalDev) {
+    if (!mockStorage) {
+      return await initKV();
+    }
+    return mockStorage;
+  }
+
   if (!kv) {
     return await initKV();
   }
@@ -121,10 +142,35 @@ export async function getKV(): Promise<Deno.Kv> {
  * 关闭 KV 数据库
  */
 export function closeKV(): void {
+  if (isLocalDev) {
+    mockStorage = null;
+    return;
+  }
+  
   if (kv) {
     kv.close();
     kv = null;
   }
+}
+
+// 辅助函数：生成模拟存储的键
+function mockKey(keyParts: string[]): string {
+  return keyParts.join(":");
+}
+
+// 辅助函数：模拟 KV 的 list 操作
+function mockList(storage: Map<string, any>, prefix: string[]) {
+  const prefixStr = prefix.join(":");
+  const results: Array<{key: string[], value: any}> = [];
+  
+  for (const [key, value] of storage) {
+    if (key.startsWith(prefixStr)) {
+      const keyParts = key.split(":");
+      results.push({ key: keyParts, value });
+    }
+  }
+  
+  return results;
 }
 
 // 数据操作函数
@@ -133,14 +179,25 @@ export function closeKV(): void {
  * 获取所有已发布的帖子
  */
 export async function getPosts(): Promise<Post[]> {
-  const kv = await getKV();
+  const storage = await getKV();
   const posts: Post[] = [];
   
-  const iter = kv.list({ prefix: ["posts"] });
-  for await (const entry of iter) {
-    const post = entry.value as Post;
-    if (post.status === 'published') {
-      posts.push(post);
+  if (isLocalDev) {
+    const mockEntries = mockList(storage as Map<string, any>, ["posts"]);
+    for (const entry of mockEntries) {
+      const post = entry.value as Post;
+      if (post.status === 'published') {
+        posts.push(post);
+      }
+    }
+  } else {
+    const kv = storage as Deno.Kv;
+    const iter = kv.list({ prefix: ["posts"] });
+    for await (const entry of iter) {
+      const post = entry.value as Post;
+      if (post.status === 'published') {
+        posts.push(post);
+      }
     }
   }
   
@@ -152,14 +209,25 @@ export async function getPosts(): Promise<Post[]> {
  * 根据状态获取帖子
  */
 export async function getPostsByStatus(status: Post['status']): Promise<Post[]> {
-  const kv = await getKV();
+  const storage = await getKV();
   const posts: Post[] = [];
   
-  const iter = kv.list({ prefix: ["posts"] });
-  for await (const entry of iter) {
-    const post = entry.value as Post;
-    if (post.status === status) {
-      posts.push(post);
+  if (isLocalDev) {
+    const mockEntries = mockList(storage as Map<string, any>, ["posts"]);
+    for (const entry of mockEntries) {
+      const post = entry.value as Post;
+      if (post.status === status) {
+        posts.push(post);
+      }
+    }
+  } else {
+    const kv = storage as Deno.Kv;
+    const iter = kv.list({ prefix: ["posts"] });
+    for await (const entry of iter) {
+      const post = entry.value as Post;
+      if (post.status === status) {
+        posts.push(post);
+      }
     }
   }
   
@@ -170,16 +238,23 @@ export async function getPostsByStatus(status: Post['status']): Promise<Post[]> 
  * 根据 ID 获取帖子
  */
 export async function getPostById(id: string): Promise<Post | null> {
-  const kv = await getKV();
-  const result = await kv.get(["posts", id]);
-  return result.value as Post | null;
+  const storage = await getKV();
+  
+  if (isLocalDev) {
+    const mockMap = storage as Map<string, any>;
+    return mockMap.get(mockKey(["posts", id])) || null;
+  } else {
+    const kv = storage as Deno.Kv;
+    const result = await kv.get(["posts", id]);
+    return result.value as Post | null;
+  }
 }
 
 /**
  * 创建新帖子
  */
 export async function createPost(post: Omit<Post, 'id' | 'created_at' | 'updated_at'>): Promise<Post> {
-  const kv = await getKV();
+  const storage = await getKV();
   const id = crypto.randomUUID();
   const now = new Date().toISOString();
   
@@ -190,7 +265,14 @@ export async function createPost(post: Omit<Post, 'id' | 'created_at' | 'updated
     updated_at: now,
   };
   
-  await kv.set(["posts", id], newPost);
+  if (isLocalDev) {
+    const mockMap = storage as Map<string, any>;
+    mockMap.set(mockKey(["posts", id]), newPost);
+  } else {
+    const kv = storage as Deno.Kv;
+    await kv.set(["posts", id], newPost);
+  }
+  
   return newPost;
 }
 
@@ -380,6 +462,143 @@ export async function updateCollectionTask(id: string, updates: Partial<Collecti
   
   await kv.set(["collection_tasks", id], updatedTask);
   return updatedTask;
+}
+
+/**
+ * 插入默认数据 - 本地环境版本
+ */
+async function insertDefaultDataMock(): Promise<void> {
+  if (!mockStorage) return;
+  
+  // 检查是否已经初始化
+  if (mockStorage.has("system:initialized")) {
+    return;
+  }
+  
+  // 插入默认分类
+  const defaultCategories: Category[] = [
+    { id: 1, name: "女装分享", slug: "nvzhuang-fenxiang", color: "#e91e63", description: "女装照片分享", created_at: new Date().toISOString() },
+    { id: 2, name: "妆容教程", slug: "zhuangrong-jiaocheng", color: "#9c27b0", description: "化妆教程和技巧", created_at: new Date().toISOString() },
+    { id: 3, name: "穿搭指南", slug: "chuanda-zhinan", color: "#673ab7", description: "服装搭配建议", created_at: new Date().toISOString() },
+    { id: 4, name: "购物推荐", slug: "gouwu-tuijian", color: "#3f51b5", description: "好物推荐", created_at: new Date().toISOString() },
+    { id: 5, name: "经验交流", slug: "jingyan-jiaoliu", color: "#2196f3", description: "经验分享", created_at: new Date().toISOString() }
+  ];
+  
+  for (const category of defaultCategories) {
+    mockStorage.set(mockKey(["categories", category.id.toString()]), category);
+  }
+  
+  mockStorage.set("counters:categories", defaultCategories.length);
+  
+  // 插入默认标签
+  const defaultTags = [
+    "女装", "自拍", "OOTD", "化妆", "护肤", "发型", "美甲", "配饰", 
+    "连衣裙", "半身裙", "上衣", "裤装", "鞋子", "包包", "首饰",
+    "日系", "韩系", "欧美", "森系", "甜美", "帅气", "优雅", "可爱"
+  ];
+  
+  for (let i = 0; i < defaultTags.length; i++) {
+    const tag: Tag = {
+      id: i + 1,
+      name: defaultTags[i],
+      count: 0,
+      created_at: new Date().toISOString()
+    };
+    mockStorage.set(mockKey(["tags", tag.id.toString()]), tag);
+  }
+  
+  mockStorage.set("counters:tags", defaultTags.length);
+  
+  // 添加一些示例帖子数据以便测试
+  const samplePosts: Post[] = [
+    {
+      id: "sample-1",
+      title: "第一次尝试女装，感觉很奇妙 ✨",
+      content: "今天勇敢地尝试了女装造型，感觉整个人都不一样了！分享一下这次的心得体验...",
+      raw_content: "今天勇敢地尝试了女装造型，感觉整个人都不一样了！分享一下这次的心得体验...",
+      excerpt: "今天勇敢地尝试了女装造型，感觉整个人都不一样了！",
+      source_url: "https://linux.do/t/sample/12345",
+      source_id: "12345",
+      source_platform: "linux.do",
+      author_id: 1,
+      category_id: 1,
+      views: 128,
+      likes: 25,
+      replies: 8,
+      score: 0,
+      status: 'published',
+      featured: true,
+      approved: true,
+      created_at: new Date(Date.now() - 86400000).toISOString(), // 1天前
+      updated_at: new Date().toISOString(),
+      published_at: new Date().toISOString(),
+    },
+    {
+      id: "sample-2", 
+      title: "分享一下今天的穿搭搭配 💖",
+      content: "今天穿了一身粉色系的搭配，感觉很适合春天的气息～大家觉得怎么样？",
+      raw_content: "今天穿了一身粉色系的搭配，感觉很适合春天的气息～大家觉得怎么样？",
+      excerpt: "今天穿了一身粉色系的搭配，感觉很适合春天的气息～",
+      source_url: "https://linux.do/t/sample/12346",
+      source_id: "12346", 
+      source_platform: "linux.do",
+      author_id: 2,
+      category_id: 3,
+      views: 95,
+      likes: 18,
+      replies: 5,
+      score: 0,
+      status: 'published',
+      featured: false,
+      approved: true,
+      created_at: new Date(Date.now() - 43200000).toISOString(), // 12小时前
+      updated_at: new Date().toISOString(),
+      published_at: new Date().toISOString(),
+    }
+  ];
+  
+  for (const post of samplePosts) {
+    mockStorage.set(mockKey(["posts", post.id]), post);
+  }
+  
+  // 添加示例作者
+  const sampleAuthors: Author[] = [
+    {
+      id: 1,
+      username: "beauty_lover",
+      display_name: "美丽爱好者",
+      avatar: "",
+      profile_url: "https://linux.do/u/beauty_lover",
+      trust_level: 2,
+      badge_count: 3,
+      is_staff: false,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    },
+    {
+      id: 2,
+      username: "fashion_girl",
+      display_name: "时尚小姐姐",
+      avatar: "",
+      profile_url: "https://linux.do/u/fashion_girl", 
+      trust_level: 1,
+      badge_count: 1,
+      is_staff: false,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    }
+  ];
+  
+  for (const author of sampleAuthors) {
+    mockStorage.set(mockKey(["authors", author.id.toString()]), author);
+  }
+  
+  mockStorage.set("counters:authors", sampleAuthors.length);
+  
+  // 标记为已初始化
+  mockStorage.set("system:initialized", true);
+  
+  console.log("✅ 本地模拟数据初始化完成");
 }
 
 /**
