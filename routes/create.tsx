@@ -133,7 +133,7 @@ export default function CreatePage({ data }: PageProps<CreatePageData>) {
         <CreateContentForm categories={categories} userTrustLevel={userTrustLevel} />
 
         {/* 创作指南 */}
-        <div className="max-w-4xl mx-auto px-4 mt-12">
+        <div className="mt-12">
           <div className="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 rounded-2xl p-8">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
               💡 创作指南

@@ -6,7 +6,11 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $admin from "./routes/admin.tsx";
 import * as $api_admin_posts_approve from "./routes/api/admin/posts/approve.ts";
+import * as $api_admin_posts_approved from "./routes/api/admin/posts/approved.ts";
+import * as $api_admin_posts_moderate from "./routes/api/admin/posts/moderate.ts";
 import * as $api_admin_posts_pending from "./routes/api/admin/posts/pending.ts";
+import * as $api_admin_posts_rejected from "./routes/api/admin/posts/rejected.ts";
+import * as $api_admin_stats from "./routes/api/admin/stats.ts";
 import * as $api_auth_callback from "./routes/api/auth/callback.ts";
 import * as $api_auth_github from "./routes/api/auth/github.ts";
 import * as $api_auth_linuxdo from "./routes/api/auth/linuxdo.ts";
@@ -46,7 +50,11 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/admin.tsx": $admin,
     "./routes/api/admin/posts/approve.ts": $api_admin_posts_approve,
+    "./routes/api/admin/posts/approved.ts": $api_admin_posts_approved,
+    "./routes/api/admin/posts/moderate.ts": $api_admin_posts_moderate,
     "./routes/api/admin/posts/pending.ts": $api_admin_posts_pending,
+    "./routes/api/admin/posts/rejected.ts": $api_admin_posts_rejected,
+    "./routes/api/admin/stats.ts": $api_admin_stats,
     "./routes/api/auth/callback.ts": $api_auth_callback,
     "./routes/api/auth/github.ts": $api_auth_github,
     "./routes/api/auth/linuxdo.ts": $api_auth_linuxdo,

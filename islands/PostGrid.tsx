@@ -1,5 +1,5 @@
 /**
- * 帖子网格展示 Island 组件
+ * 帖子网格展示 Island 组件 - 博客版本
  */
 
 import { useState, useEffect } from "preact/hooks";
@@ -11,44 +11,31 @@ interface Post {
   title: string;
   content: string;
   excerpt?: string;
-  sourceUrl: string;
+  post_type: 'original' | 'collected' | 'shared';
+  min_trust_level: number;
+  mature_content: boolean;
+  content_warnings?: string[];
+  source_url?: string;
+  tags?: string[];
   author: {
     id: number;
     username: string;
-    displayName?: string;
+    display_name?: string;
     avatar?: string;
-    trustLevel?: number;
+    trust_level: number;
   };
   category?: {
     id: number;
     name: string;
-    slug: string;
-    color?: string;
+    color: string;
   };
-  tags: Array<{
-    id: number;
-    name: string;
-  }>;
-  images: Array<{
-    id: string;
-    url: string;
-    thumbnailUrl?: string;
-    alt?: string;
-  }>;
-  featuredImage?: {
-    id: string;
-    url: string;
-    thumbnailUrl?: string;
-    alt?: string;
-  };
-  stats: {
-    views: number;
-    likes: number;
-    replies: number;
-  };
-  createdAt: string;
+  created_at: string;
+  published_at?: string;
   status: string;
   featured: boolean;
+  views: number;
+  likes: number;
+  replies: number;
 }
 
 export default function PostGrid() {
@@ -61,7 +48,8 @@ export default function PostGrid() {
   const fetchPosts = async (pageNum: number = 1) => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/posts?page=${pageNum}&limit=12&status=published&sortBy=created_at&sortOrder=desc`);
+      // 从用户可见的已发布内容中获取帖子
+      const response = await fetch(`/api/posts?page=${pageNum}&limit=12`);
       const data = await response.json();
 
       if (data.success) {
@@ -115,6 +103,26 @@ export default function PostGrid() {
     }
   };
 
+  const getPostTypeLabel = (type: string) => {
+    const labels = {
+      'original': '✍️ 原创',
+      'collected': '📚 教程',
+      'shared': '🔗 分享'
+    };
+    return labels[type as keyof typeof labels] || type;
+  };
+
+  const getTrustLevelLabel = (level: number) => {
+    const labels = {
+      0: '🌍 公开',
+      1: '👥 基础用户+',
+      2: '⭐ 成员+',
+      3: '🌟 常客+',
+      4: '💎 领导者'
+    };
+    return labels[level as keyof typeof labels] || `Level ${level}`;
+  };
+
   if (loading && posts.length === 0) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,10 +164,16 @@ export default function PostGrid() {
     return (
       <div className="text-center py-12 space-y-4">
         <div className="text-4xl">📝</div>
-        <h3 className="text-lg font-medium text-gray-900 dark:text-white">暂无帖子</h3>
+        <h3 className="text-lg font-medium text-gray-900 dark:text-white">暂无内容</h3>
         <p className="text-gray-600 dark:text-gray-400">
-          还没有发布的帖子，快去添加一些精彩内容吧！
+          还没有已发布的内容，快去创作一些精彩内容吧！
         </p>
+        <a
+          href="/create"
+          className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all duration-300"
+        >
+          ✨ 开始创作
+        </a>
       </div>
     );
   }
@@ -170,38 +184,46 @@ export default function PostGrid() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
           <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
-            {/* 特色标记 */}
-            {post.featured && (
-              <div className="absolute top-3 left-3 z-10 bg-pink-500 text-white text-xs font-medium px-2 py-1 rounded-full">
-                ⭐ 精选
-              </div>
-            )}
+            {/* 标记和类型 */}
+            <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
+              {post.featured && (
+                <span className="bg-pink-500 text-white text-xs font-medium px-2 py-1 rounded-full">
+                  ⭐ 精选
+                </span>
+              )}
+              <span className="bg-blue-500 text-white text-xs font-medium px-2 py-1 rounded-full">
+                {getPostTypeLabel(post.post_type)}
+              </span>
+              {post.mature_content && (
+                <span className="bg-red-500 text-white text-xs font-medium px-2 py-1 rounded-full">
+                  🔞
+                </span>
+              )}
+            </div>
 
-            {/* 图片 */}
-            {post.featuredImage && (
-              <div className="aspect-video bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                <img
-                  src={post.featuredImage.thumbnailUrl || post.featuredImage.url}
-                  alt={post.featuredImage.alt || post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-            )}
+            {/* 占位图片区域 */}
+            <div className="aspect-video bg-gradient-to-br from-pink-100 to-purple-100 dark:from-pink-900 dark:to-purple-900 flex items-center justify-center">
+              <span className="text-4xl opacity-50">
+                {post.post_type === 'original' ? '✍️' : 
+                 post.post_type === 'collected' ? '📚' : '🔗'}
+              </span>
+            </div>
 
             <CardContent className="p-4 space-y-3">
-              {/* 分类标签 */}
-              {post.category && (
-                <div className="flex items-center gap-2">
+              {/* 分类和可见性标签 */}
+              <div className="flex items-center gap-2 flex-wrap">
+                {post.category && (
                   <span 
-                    className="inline-block w-2 h-2 rounded-full"
-                    style={{ backgroundColor: post.category.color || "#6B7280" }}
-                  ></span>
-                  <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                    className="text-xs px-2 py-1 rounded text-white font-medium"
+                    style={{ backgroundColor: post.category.color }}
+                  >
                     {post.category.name}
                   </span>
-                </div>
-              )}
+                )}
+                <span className="text-xs px-2 py-1 rounded bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">
+                  {getTrustLevelLabel(post.min_trust_level)}
+                </span>
+              </div>
 
               {/* 标题 */}
               <h3 className="font-semibold text-gray-900 dark:text-white line-clamp-2 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
@@ -215,15 +237,22 @@ export default function PostGrid() {
                 </p>
               )}
 
+              {/* 内容警告 */}
+              {post.content_warnings && post.content_warnings.length > 0 && (
+                <div className="text-xs text-orange-600 dark:text-orange-400">
+                  ⚠️ {post.content_warnings.join(', ')}
+                </div>
+              )}
+
               {/* 标签 */}
-              {post.tags.length > 0 && (
+              {post.tags && post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1">
-                  {post.tags.slice(0, 3).map((tag) => (
+                  {post.tags.slice(0, 3).map((tag, index) => (
                     <span
-                      key={tag.id}
+                      key={index}
                       className="inline-block bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs px-2 py-1 rounded"
                     >
-                      #{tag.name}
+                      #{tag}
                     </span>
                   ))}
                   {post.tags.length > 3 && (
@@ -240,46 +269,52 @@ export default function PostGrid() {
                   {post.author.avatar ? (
                     <img
                       src={post.author.avatar}
-                      alt={post.author.displayName || post.author.username}
+                      alt={post.author.display_name || post.author.username}
                       className="w-6 h-6 rounded-full"
                     />
                   ) : (
                     <div className="w-6 h-6 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                      {(post.author.displayName || post.author.username).charAt(0).toUpperCase()}
+                      {(post.author.display_name || post.author.username).charAt(0).toUpperCase()}
                     </div>
                   )}
                   <div className="flex flex-col">
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      {post.author.displayName || post.author.username}
+                      {post.author.display_name || post.author.username}
                     </span>
                     <span className="text-xs text-gray-500 dark:text-gray-400">
-                      {getTrustLevelText(post.author.trustLevel)}
+                      {getTrustLevelText(post.author.trust_level)}
                     </span>
                   </div>
                 </div>
                 
                 <div className="text-right text-xs text-gray-500 dark:text-gray-400">
-                  <div>{formatDate(post.createdAt)}</div>
+                  <div>{formatDate(post.published_at || post.created_at)}</div>
                   <div className="flex items-center gap-2 mt-1">
-                    <span>👀 {post.stats.views}</span>
-                    <span>❤️ {post.stats.likes}</span>
+                    <span>👀 {post.views || 0}</span>
+                    <span>❤️ {post.likes || 0}</span>
                   </div>
                 </div>
               </div>
 
               {/* 查看按钮 */}
               <div className="pt-2">
-                <a
-                  href={post.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 transition-colors"
-                >
-                  查看原帖
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
+                {post.source_url ? (
+                  <a
+                    href={post.source_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 transition-colors"
+                  >
+                    查看来源
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                    原创内容
+                  </span>
+                )}
               </div>
             </CardContent>
           </Card>

@@ -95,7 +95,7 @@ export default function CreateContentForm({ categories, userTrustLevel }: Create
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <div>
       {/* 提交消息 */}
       {submitMessage && (
         <div className={`mb-6 p-4 rounded-xl ${

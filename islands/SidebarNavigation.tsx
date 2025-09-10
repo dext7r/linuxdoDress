@@ -191,6 +191,21 @@ const iconMap: Record<string, JSX.Element> = {
       />
     </svg>
   ),
+  create: (
+    <svg
+      className="w-5 h-5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 4v16m8-8H4"
+      />
+    </svg>
+  ),
 };
 
 export default function SidebarNavigation() {
@@ -198,7 +213,8 @@ export default function SidebarNavigation() {
 
   const menuItems: MenuItem[] = [
     { href: "/", label: "首页", icon: "home" },
-    { href: "/dress", label: "女装展示", icon: "dress" },
+    { href: "/dress", label: "内容浏览", icon: "dress" },
+    { href: "/create", label: "创作内容", icon: "create" },
   ];
 
   return (

@@ -317,21 +317,41 @@ export async function createPost(post: Omit<Post, 'id' | 'created_at' | 'updated
  * 更新帖子
  */
 export async function updatePost(id: string, updates: Partial<Post>): Promise<Post | null> {
-  const kv = await getKV();
-  const existing = await kv.get(["posts", id]);
+  const storage = await getKV();
   
-  if (!existing.value) {
-    return null;
+  if (isLocalDev) {
+    const mockMap = storage as Map<string, any>;
+    const existingPost = mockMap.get(mockKey(["posts", id]));
+    
+    if (!existingPost) {
+      return null;
+    }
+    
+    const updatedPost: Post = {
+      ...(existingPost as Post),
+      ...updates,
+      updated_at: new Date().toISOString(),
+    };
+    
+    mockMap.set(mockKey(["posts", id]), updatedPost);
+    return updatedPost;
+  } else {
+    const kv = storage as Deno.Kv;
+    const existing = await kv.get(["posts", id]);
+    
+    if (!existing.value) {
+      return null;
+    }
+    
+    const updatedPost: Post = {
+      ...(existing.value as Post),
+      ...updates,
+      updated_at: new Date().toISOString(),
+    };
+    
+    await kv.set(["posts", id], updatedPost);
+    return updatedPost;
   }
-  
-  const updatedPost: Post = {
-    ...(existing.value as Post),
-    ...updates,
-    updated_at: new Date().toISOString(),
-  };
-  
-  await kv.set(["posts", id], updatedPost);
-  return updatedPost;
 }
 
 /**
@@ -384,9 +404,16 @@ export async function addPostImage(image: Omit<PostImage, 'id'>): Promise<PostIm
  * 获取作者信息
  */
 export async function getAuthor(id: number): Promise<Author | null> {
-  const kv = await getKV();
-  const result = await kv.get(["authors", id]);
-  return result.value as Author | null;
+  const storage = await getKV();
+  
+  if (isLocalDev) {
+    const mockMap = storage as Map<string, any>;
+    return mockMap.get(mockKey(["authors", id.toString()])) || null;
+  } else {
+    const kv = storage as Deno.Kv;
+    const result = await kv.get(["authors", id]);
+    return result.value as Author | null;
+  }
 }
 
 /**
