@@ -5,7 +5,7 @@
 
 import { HandlerContext } from "$fresh/server.ts";
 import { verifyJWT, userFromJWTPayload } from "../../../../utils/jwt.ts";
-import { getPosts } from "../../../../utils/postService.ts";
+import { getPostsByStatus, getAuthor, getCategories } from "../../../../utils/database_kv.ts";
 import { isAdmin } from "../../../../utils/adminConfig.ts";
 
 export const handler = {
@@ -55,22 +55,75 @@ export const handler = {
       const url = new URL(req.url);
       const page = parseInt(url.searchParams.get("page") || "1");
       const limit = parseInt(url.searchParams.get("limit") || "10");
-      const status = url.searchParams.get("status") || "pending_approval";
+      const offset = (page - 1) * limit;
       
       // 获取待审核帖子
-      const result = await getPosts({
-        status: [status],
-        sortBy: 'created_at',
-        sortOrder: 'desc',
-        limit,
-        offset: (page - 1) * limit,
-      });
+      const allPendingPosts = await getPostsByStatus('pending_approval');
+      
+      // 获取分类信息用于映射
+      const categories = await getCategories();
+      const categoryMap = new Map(categories.map(cat => [cat.id, cat]));
+      
+      // 按创建时间倒序排序
+      allPendingPosts.sort((a, b) => 
+        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      );
+      
+      // 分页处理
+      const total = allPendingPosts.length;
+      const paginatedPosts = allPendingPosts.slice(offset, offset + limit);
+      
+      // 丰富帖子数据：添加作者和分类信息
+      const enrichedPosts = await Promise.all(
+        paginatedPosts.map(async (post) => {
+          const author = await getAuthor(post.author_id);
+          const category = post.category_id ? categoryMap.get(post.category_id) : null;
+          
+          return {
+            id: post.id,
+            title: post.title,
+            content: post.content,
+            excerpt: post.excerpt,
+            post_type: post.post_type,
+            min_trust_level: post.min_trust_level,
+            mature_content: post.mature_content,
+            content_warnings: post.content_warnings,
+            source_url: post.source_url,
+            tags: post.tags,
+            author: author ? {
+              id: author.id,
+              username: author.username,
+              display_name: author.display_name,
+              avatar: author.avatar,
+              trust_level: author.trust_level
+            } : null,
+            category: category ? {
+              id: category.id,
+              name: category.name,
+              color: category.color
+            } : null,
+            created_at: post.created_at,
+            status: post.status
+          };
+        })
+      );
+      
+      // 计算分页信息
+      const pageSize = limit;
+      const hasNext = offset + limit < total;
+      const hasPrevious = page > 1;
       
       return new Response(
         JSON.stringify({ 
           success: true,
-          data: result,
-          message: `Found ${result.total} posts with status: ${status}`
+          data: {
+            posts: enrichedPosts,
+            total,
+            page,
+            pageSize,
+            hasNext,
+            hasPrevious
+          }
         }),
         { 
           status: 200, 
