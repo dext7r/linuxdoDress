@@ -5,7 +5,7 @@
 
 import { HandlerContext } from "$fresh/server.ts";
 import { verifyJWT, userFromJWTPayload } from "../../../../utils/jwt.ts";
-import { getDB } from "../../../../utils/database.ts";
+import { getKV, getPostById, updatePost } from "../../../../utils/database_kv.ts";
 import { isAdmin } from "../../../../utils/adminConfig.ts";
 
 export const handler = {
@@ -66,52 +66,42 @@ export const handler = {
         );
       }
       
-      const db = getDB();
       const now = new Date().toISOString();
       
       // 检查帖子是否存在
-      const postExists = db.query(`
-        SELECT id, title, status FROM posts WHERE id = ?
-      `, [postId]);
+      const post = await getPostById(postId);
       
-      if (postExists.length === 0) {
+      if (!post) {
         return new Response(
           JSON.stringify({ error: "Post not found" }),
           { status: 404, headers: { "Content-Type": "application/json" } }
         );
       }
       
-      const post = postExists[0] as any;
-      
       // 更新帖子状态
+      let updatedPost;
       if (action === 'approve') {
-        db.query(`
-          UPDATE posts SET 
-            status = 'published', 
-            approved = true, 
-            published_at = ?,
-            updated_at = ?,
-            processing_notes = COALESCE(processing_notes, '') || ?
-          WHERE id = ?
-        `, [
-          now, 
-          now, 
-          `\n${now}: 管理员 ${user.username} 批准发布` + (reason ? ` - ${reason}` : ''),
-          postId
-        ]);
+        updatedPost = await updatePost(postId, {
+          status: 'published',
+          approved: true,
+          published_at: now,
+          processing_notes: (post.processing_notes || '') + 
+            `\n${now}: 管理员 ${user.username} 批准发布` + (reason ? ` - ${reason}` : ''),
+        });
       } else {
-        db.query(`
-          UPDATE posts SET 
-            status = 'rejected', 
-            approved = false,
-            updated_at = ?,
-            processing_notes = COALESCE(processing_notes, '') || ?
-          WHERE id = ?
-        `, [
-          now,
-          `\n${now}: 管理员 ${user.username} 拒绝发布` + (reason ? ` - ${reason}` : ''),
-          postId
-        ]);
+        updatedPost = await updatePost(postId, {
+          status: 'rejected',
+          approved: false,
+          processing_notes: (post.processing_notes || '') + 
+            `\n${now}: 管理员 ${user.username} 拒绝发布` + (reason ? ` - ${reason}` : ''),
+        });
+      }
+      
+      if (!updatedPost) {
+        return new Response(
+          JSON.stringify({ error: "Failed to update post" }),
+          { status: 500, headers: { "Content-Type": "application/json" } }
+        );
       }
       
       return new Response(

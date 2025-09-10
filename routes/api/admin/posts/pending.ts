@@ -58,7 +58,7 @@ export const handler = {
       const status = url.searchParams.get("status") || "pending_approval";
       
       // 获取待审核帖子
-      const result = getPosts({
+      const result = await getPosts({
         status: [status],
         sortBy: 'created_at',
         sortOrder: 'desc',

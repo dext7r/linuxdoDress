@@ -1,0 +1,48 @@
+name: linuxdodress
+description: "Linux.do 女装展示系统 - 基于 Fresh (Deno) 的现代化女装内容聚合展示平台，集成认证系统、帖子采集、管理员审核和精美展示界面。"
+
+# 构建配置
+build:
+  # 在部署前运行构建命令
+  pre-deploy:
+    - deno task manifest
+    - deno task build
+
+# 部署配置
+deployment:
+  entrypoint: main.ts
+  include:
+    - "**/*.ts"
+    - "**/*.tsx"
+    - "**/*.js"
+    - "**/*.jsx"
+    - "**/*.json"
+    - "static/**/*"
+    - "_fresh/**/*"
+    - "fresh.gen.ts"
+    - "fresh.config.ts"
+    - "components/**/*"
+    - "islands/**/*"
+    - "routes/**/*"
+    - "utils/**/*"
+    - "stores/**/*"
+    - "hooks/**/*"
+    - "styles/**/*"
+  exclude:
+    - "node_modules/"
+    - ".git/"
+    - "**/*.test.ts"
+    - "**/*.test.tsx"
+    - "dev.ts"
+    - "README.md"
+    - ".env*"
+
+# 环境变量配置提示
+env:
+  required:
+    - LINUXDO_CLIENT_ID
+    - LINUXDO_CLIENT_SECRET
+    - APP_BASE_URL
+    - JWT_SECRET
+    - SESSION_EXPIRE_TIME
+    - DATABASE_PATH
